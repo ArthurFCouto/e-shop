@@ -1,8 +1,8 @@
-import p1 from '../../src/iconsSvg/p1.svg';
-import p2 from '../../src/iconsSvg/p2.svg';
-import p3 from '../../src/iconsSvg/p3.svg';
-import p4 from '../../src/iconsSvg/p4.svg';
-import p5 from '../../src/iconsSvg/p5.svg';
+import p1 from '../../src/imageSvg/p1.svg';
+import p2 from '../../src/imageSvg/p2.svg';
+import p3 from '../../src/imageSvg/p3.svg';
+import p4 from '../../src/imageSvg/p4.svg';
+import p5 from '../../src/imageSvg/p5.svg';
 
 export const productList = [
     {
