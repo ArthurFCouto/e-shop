@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ButtonLarge, Container, ViewTop,
-  ViewBottom, ViewButtom } from "../src/components/commom";
+import {
+  ButtonLarge, Container, ViewTop,
+  ViewBottom, ViewButtom
+} from "../src/components/commom";
 import logo from "../src/iconsSvg/fruit2.svg";
 
 export default function Home() {
-  
+
   return (
     <Container>
       <ViewTop>
         <Image
-        src={logo}
-        alt="Carregando imagem..."
+          src={logo}
+          alt="Carregando imagem..."
         />
       </ViewTop>
       <ViewBottom>
@@ -20,10 +22,10 @@ export default function Home() {
       </ViewBottom>
       <ViewButtom>
         <ButtonLarge
-        type="Submit">
+          type="Submit">
           <Link
-          href="/register"
-          passHref>
+            href="/register"
+            passHref>
             Let’s Continue
           </Link>
         </ButtonLarge>

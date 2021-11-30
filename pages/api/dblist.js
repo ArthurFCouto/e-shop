@@ -90,24 +90,14 @@ export const buttonSugestions = [
 
 export default async function ListProductsAPI(request, response) {
     if(request.method === 'GET') {
-        response.json({
-            data: productList,
-            sugestions: buttonSugestions
+        response.status(404).json({
+            message: 'Ainda não temos suporte a este método de requisição.'
         })
         return;
     } else if(request.method === 'POST') {
-        const text = request.body.data;
-        if((text != undefined) && (text.trim().length>0)) {
-            response.json({
-                data: productList.filter((item)=> (
-                    item.title.toUpperCase().includes(text.toUpperCase())
-                  ))
-            })
-        } else {
-            response.json({
-                data: []
-            })
-        }
+        response.status(404).json({
+            message: 'Ainda não temos suporte a este método de requisição.'
+        })
         return;
     }
     response.status(404).json({
