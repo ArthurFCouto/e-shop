@@ -8,83 +8,82 @@ export const productList = [
     {
         id : 0,
         image : p1,
-        title : "Melon fruit salad",
-        price : 44.99,
-        details: "Our house dish, the melon fruit salad, is sure to please any palate.",
+        title : "Salada de Frutas de Melão",
+        price : 14.9,
+        details: "O prato da casa, a salada de frutas de melão, com certeza vai agradar a qualquer paladar.",
         tags: [
-            "Melon",
-            "Raspberry",
-            "Blackberries",
-            "Honey",
-            "Strawberry"
+            "Melão",
+            "Framboesa",
+            "Amora",
+            "Mel",
+            "Morango"
         ]
     },
     {
         id : 1,
         image : p2,
-        title : "Berry mango combo",
-        price : 29.99,
-        details: "If you like a mango berry combination, this is the perfect dish for you.",
+        title : "Combo Manga+Amora",
+        price : 12.9,
+        details: "Se você gosta de uma combinação de manga com amoras, este é o prato perfeito para você.",
         tags: [
-            "Mango",
-            "Berry",
-            "Blackberries",
-            "Strawberry",
-            "Fresh Mint"
+            "Manga",
+            "Amora",
+            "Framboesa",
+            "Morango",
+            "Menta refrescante"
         ]
     },
     {
         id : 2,
         image : p3,
-        title : "Honey lime combo",
-        price : 18.99,
-        details: "Nothing better than a combination of honey and lemon to make your day more bittersweet.",
+        title : "Salada de Limão e Mel",
+        price : 11.9,
+        details: "Nada melhor do que uma combinação de mel e limão para deixar o seu dia mais agridoce.",
         tags: [
-            "Lime",
-            "Raspberry",
-            "Blackberries",
-            "Honey",
-            "Strawberry"
+            "Limão",
+            "Framboesa",
+            "Amora",
+            "Mel",
+            "Morango"
         ]
     },
     {
         id : 3,
         image : p4,
-        title : "Quinoa fruit salad",
-        price : 26.99,
-        details: "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you.",
+        title : "Salada de Frutas de Quinoa",
+        price : 10.9,
+        details: "Se você está procurando uma nova salada de frutas para comer hoje, a quinoa é o que tem para você.",
         tags : [
-            "Red Quinoa",
-            "Lime",
-            "Blueberries",
-            "Mango",
-            "Strawberries",
-            "Fresh Mint"
+            "Quinoa",
+            "Limão",
+            "Amora",
+            "Manga",
+            "Morango"
         ]
     },
     {
         id : 4,
         image : p5,
-        title : "Tropical fruit salad",
-        price : 22.99,
-        details: "A salad that suits you at any time. The tropical fruit salad is perfect.",
+        title : "Salada de Frutaa Tropical",
+        price : 13.99,
+        details: "Uma salada que combina com você a qualquer hora. A salada de frutas tropicais é perfeita.",
         tags : [
             "Kiwi",
-            "Pineapple",
-            "Orange",
-            "Mango",
-            "Strawberries",
-            "Fresh Mint"
+            "Abacaxi",
+            "Laranja",
+            "Manga",
+            "Morango",
+            "Menta refrescante"
         ]
     }
 ]
 
 export const buttonSugestions = [
-    "Salad",
-    "Berry",
+    "Salada",
+    "Amora",
     "Quinoa",
-    "Lime",
-    "Fruit",
+    "Limão",
+    "Fruta",
     "Combo"
 ];
 

@@ -43,7 +43,7 @@ export default function Card(props) {
                     {title}
                 </Title>
                 <Price>
-                    R$ {price}
+                    R$ {price.toFixed(2)}
                     <div>
                         <ButtonAdd
                             onClick={() => add()} />

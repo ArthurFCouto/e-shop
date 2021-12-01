@@ -97,7 +97,7 @@ export default function ModalDetails(props) {
                         </div>
                         <ButtonLarge
                         onClick={()=> AddItemCart()}>
-                            Add To Basket
+                            Adicionar ao Carrinho
                         </ButtonLarge>
                     </BodyFooter>
                 </BodySection>

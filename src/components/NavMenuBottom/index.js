@@ -5,19 +5,19 @@ export default function NavMenuBottom() {
     return(
         <Section >
             <ButtonBlock>
-                Hottest
+                Populares
                 <LineOrange
                 width="50%"
                 margin="0"/>
             </ButtonBlock>
             <ButtonBlock>
-                Popular
+                Mais Pedidos
                 <LineOrange
                 width="0"
                 margin="0"/>
             </ButtonBlock>
             <ButtonBlock>
-                New Combo
+                Novos Combos
                 <LineOrange
                 width="0" 
                 margin="0"/>

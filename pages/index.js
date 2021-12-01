@@ -17,8 +17,8 @@ export default function Home() {
         />
       </ViewTop>
       <ViewBottom>
-        <h3>Get The Freshest Fruit Salad Combo</h3>
-        <h2>We deliver the best and freshest fruit salad in town. Order for a combo today!!!</h2>
+        <h3>Confira os melhores combo de salada de frutas!</h3>
+        <h2>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</h2>
       </ViewBottom>
       <ViewButtom>
         <ButtonLarge
@@ -26,7 +26,7 @@ export default function Home() {
           <Link
             href="/register"
             passHref>
-            Let’s Continue
+            Continuar
           </Link>
         </ButtonLarge>
       </ViewButtom>

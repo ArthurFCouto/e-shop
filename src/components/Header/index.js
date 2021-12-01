@@ -22,13 +22,13 @@ export default function Header(props) {
                         src={menu}
                         height={30}
                         width={30}
-                        alt="Menu"
+                        alt="Voltar"
                         />
                     </Link>
-                    <h1>Welcome, {name}</h1>
+                    <h1>Olá, {name}</h1>
                 </NavLeft>
                 <Button
-                title="Shopping Cart"
+                title="Meu carrinho"
                 onClick={() => showCart(true)}>
                     <Image
                     src={cart}
@@ -46,7 +46,7 @@ export default function Header(props) {
                     search(text);
                 }}>
                     <InputText
-                    placeholder="Search for fruit salad combos"
+                    placeholder="Pesquisar por combos de salada de frutas"
                     type="search"
                     name="search"
                     autoComplete="false"
@@ -55,7 +55,7 @@ export default function Header(props) {
                     />
                 </form>
                 <Button
-                    title="Filter / Clear"
+                    title="Filtrar / Limpar"
                     onClick={() => {
                         setValueInput("");
                         clear();

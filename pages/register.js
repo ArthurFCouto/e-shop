@@ -22,7 +22,7 @@ export default function Register() {
         />
       </ViewTop>
       <ViewBottom>
-        <h3>What is your firstname?</h3>
+        <h3>Primeiramente, qual seu nome?</h3>
         <InputText
           placeholder="Chris"
           onChange={(evento) => (SubmitName(evento.target.value))}
@@ -34,7 +34,7 @@ export default function Register() {
           <Link
             href="/dashboard"
             passHref>
-            Start Ordering
+            Iniciar pedidos
           </Link>
         </ButtonLarge>
       </ViewButtom>

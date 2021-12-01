@@ -28,7 +28,7 @@ export default function Dashboard() {
 
   function Inicialize() {
     if (localStorage)
-      setName(localStorage.getItem('name') === null ? "Visitor" : localStorage.getItem('name'));
+      setName(localStorage.getItem('name') === null ? "Visitante" : localStorage.getItem('name'));
     ClearArray();
   }
 
@@ -93,14 +93,14 @@ export default function Dashboard() {
       />
       <ViewMain>
         <SectionCards>
-          <TitleMain>Recommended Combo</TitleMain>
+          <TitleMain>Combos recomendados</TitleMain>
           <LineOrange
             width="20%"
           />
           <MainGrid>
             {dataCard}
             {dataCard.length == 0 && (
-              <TitleMain>No data to see.</TitleMain>
+              <TitleMain>Sem combos para exibir.</TitleMain>
             )}
           </MainGrid>
         </SectionCards>
@@ -109,7 +109,7 @@ export default function Dashboard() {
           <MainLinear>
             {dataCard}
             {dataCard.length == 0 && (
-              <TitleMain>No data to see.</TitleMain>
+              <TitleMain>Sem combos para exibir.</TitleMain>
             )}
           </MainLinear>
         </SectionCards>
