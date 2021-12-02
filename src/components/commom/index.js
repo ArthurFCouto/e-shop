@@ -17,7 +17,8 @@ export const Container = styled.main`
 
 export const ViewButtom = styled.section`
     width: 100%;
-    display: bottom;
+    display: block;
+    margin: auto;
     padding: 10px 5px;
 `;
 

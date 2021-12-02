@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from 'next/router'
 import { ButtonLarge } from "../src/components/ButtonLarge";
 import {
   Container, ViewButtom
@@ -8,6 +8,12 @@ import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit2.svg";
 
 export default function Home() {
+
+  const router = useRouter();
+
+  function action() {
+    return router.push('/register');
+  }
 
   return (
     <Container>
@@ -22,12 +28,9 @@ export default function Home() {
         <span className={styles.subTitle}>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</span>
         <ViewButtom>
           <ButtonLarge
-            type="Submit">
-            <Link
-              href="/register"
-              passHref>
+            type="Submit"
+            actionClick={()=> action()}>
               Continuar
-            </Link>
           </ButtonLarge>
         </ViewButtom>
       </div>
