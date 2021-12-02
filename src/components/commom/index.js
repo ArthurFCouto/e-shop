@@ -6,7 +6,7 @@ export const Container = styled.main`
     
     @media(max-width: 860px) {
         position: relative;
-        height: 100vh;
+        min-height: 100%;
         display: block;
         background-color: #FFA451;
     }
@@ -15,38 +15,10 @@ export const Container = styled.main`
     }
 `;
 
-export const ViewTop = styled.section`
-    position: relative;
-    width: 100%;
-    height: 60%;
-    padding: 0;
-    margin: 0;
-    background-color: #FFA451;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-export const ViewBottom = styled.section`
-    width: 100%;
-    height: 20%;
-    margin: 0;
-    padding: 15px;
-    background-color: #FFFFFF;
-`;
-
 export const ViewButtom = styled.section`
     width: 100%;
-    height: 20%;
-    margin: 0;
-    padding: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #FFFFFF;
+    display: bottom;
+    padding: 10px 5px;
 `;
 
 export const ViewMain = styled.main`
@@ -66,32 +38,6 @@ const HrOrange = styled.div`
     margin: 5px 0;
     height: 2px;
 `;
-
-const ButtonLargeOrange = styled.button`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 10px;
-    cursor: pointer;
-
-    width: 90%;
-    height: auto;
-    margin: auto;
-
-    background: #FFA451;
-    border: 0;
-    border-radius: 10px;
-    box-shadow: 0px 5px 5px #E4E4E4;
-
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.5rem;
-
-    color: #FFFFFF;
-`;
-
-
 
 export const ButtonPerson = styled.button`
     display: flex;
@@ -161,12 +107,6 @@ export const MainLinear = styled.main`
 
     display: inline-flex;
 `;
-
-export function ButtonLarge(props) {
-    return (
-        <ButtonLargeOrange {...props} />
-    )
-}
 
 export function ImageButton(props) {
     return (

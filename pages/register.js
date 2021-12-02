@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ButtonLarge, Container, InputText, ViewTop,
-  ViewBottom, ViewButtom
-} from "../src/components/commom";
+import { ButtonLarge } from "../src/components/ButtonLarge";
+import { Container, ViewButtom } from "../src/components/commom";
+import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit.svg";
 
 export default function Register() {
@@ -15,29 +14,33 @@ export default function Register() {
 
   return (
     <Container>
-      <ViewTop>
-        <Image
-          src={logo}
-          alt="Carregando imagem..."
-        />
-      </ViewTop>
-      <ViewBottom>
-        <h3>Primeiramente, qual seu nome?</h3>
-        <InputText
+      <div className={styles.containerTop}>
+        <Link
+          href="/"
+          passHref>
+          <Image
+            src={logo}
+            alt="Carregando imagem..."
+          />
+        </Link>
+      </div>
+      <div className={styles.containerBottom}>
+        <span className={styles.title}>Primeiramente, qual seu nome?</span>
+        <input className={styles.inputData}
           placeholder="Chris"
           onChange={(evento) => (SubmitName(evento.target.value))}
         />
-      </ViewBottom>
-      <ViewButtom>
-        <ButtonLarge
-          type="Submit">
-          <Link
-            href="/dashboard"
-            passHref>
-            Iniciar pedidos
-          </Link>
-        </ButtonLarge>
-      </ViewButtom>
+        <ViewButtom>
+          <ButtonLarge
+            type="Submit">
+            <Link
+              href="/dashboard"
+              passHref>
+              Iniciar pedidos
+            </Link>
+          </ButtonLarge>
+        </ViewButtom>
+      </div>
     </Container>
   )
 }
