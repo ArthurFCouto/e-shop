@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { useState } from "react";
-import fav from "../../iconsSvg/favorite.svg";
 import { Fav } from "./styles";
 import Lottie from 'react-lottie';
 import heart from '../../assets/heart.json';
@@ -22,9 +20,7 @@ export default function ButtonFav(props) {
         }
     };
     return (
-        <Fav
-            {...props}
-            onClick={() => {
+        <Fav onClick={() => {
                 const reverseAnimation = -1;
                 const normalAnimation = 1;
 
@@ -37,17 +33,11 @@ export default function ButtonFav(props) {
                 })
                 setLikeState(!isLiked);
             }}>
-            {/*<Image
-            src={fav}
-            height={30}
-            width={30}
-            alt="Favorite"
-            />*/}
             <div className="animation">
                 <Lottie
                     options={defaultOptions}
-                    width={30}
-                    height={30}
+                    width={50}
+                    height={50}
                     direction={animationState.direction}
                     isStopped={animationState.isStopped}
                     isPaused={animationState.isPaused} />

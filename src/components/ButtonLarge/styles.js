@@ -8,7 +8,7 @@ export const ButtonContainer = styled.button`
     padding: 15px 10px;
     cursor: pointer;
 
-    min-width: 90%;
+    width: 90%;
     height: auto;
     min-height: 44px;
     margin: auto;

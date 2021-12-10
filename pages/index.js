@@ -28,7 +28,6 @@ export default function Home() {
         <span className={styles.subTitle}>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</span>
         <ViewButtom>
           <ButtonLarge
-            type="Submit"
             actionClick={()=> action()}>
               Continuar
           </ButtonLarge>

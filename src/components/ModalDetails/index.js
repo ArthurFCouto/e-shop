@@ -3,10 +3,13 @@ import { useState } from "react";
 import ButtonFav from "../ButtonFav";
 import ButtonAdd from "../ButtonAdd";
 import ButtonSub from "../ButtonSub";
-import { ButtonLarge, InputText, LineOrange } from "../commom";
-import { DetailMain, DetailHeader, DetailSection, HeaderSection,
+import { ButtonLarge } from "../ButtonLarge";
+import { InputText, LineOrange } from "../commom";
+import {
+    DetailMain, DetailHeader, DetailSection, HeaderSection,
     HeaderButtons, Divisor, BodySection, BodyTags,
-    BodyDetails, BodyFooter} from "./styles";
+    BodyDetails, BodyFooter
+} from "./styles";
 
 export default function ModalDetails(props) {
     const [valueInput, setValueInput] = useState(1);
@@ -15,30 +18,30 @@ export default function ModalDetails(props) {
     const [priceValue, setPriceValue] = useState(price);
 
     function Add() {
-        let data = valueInput+1;
-        if(valueInput<10) {
-            setValueInput(valueInput+1);
-            setPriceValue(price*data);
+        let data = valueInput + 1;
+        if (valueInput < 10) {
+            setValueInput(valueInput + 1);
+            setPriceValue(price * data);
         }
     }
 
     function Sub() {
-        let data = valueInput-1;
-        if(valueInput>1) {
-            setValueInput(valueInput-1);
-            setPriceValue(price*data);
+        let data = valueInput - 1;
+        if (valueInput > 1) {
+            setValueInput(valueInput - 1);
+            setPriceValue(price * data);
         }
     }
 
     function AddItemCart() {
         var date = new Date();
-        var idFull = " "+date.getHours()+date.getMinutes()+date.getSeconds()+date.getMilliseconds();
+        var idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
         let data = {
-            id : idFull,
+            id: idFull,
             image: image,
-            title : title,
-            price : priceValue,
-            count : valueInput
+            title: title,
+            price: priceValue,
+            count: valueInput
         }
         addCart(data);
         onClose();
@@ -49,10 +52,10 @@ export default function ModalDetails(props) {
         <DetailMain>
             <DetailHeader>
                 <Image
-                src={image}
-                height={100}
-                width={100}
-                alt="Imagem produto"
+                    src={image}
+                    height={100}
+                    width={100}
+                    alt="Imagem produto"
                 />
             </DetailHeader>
             <DetailSection>
@@ -60,14 +63,14 @@ export default function ModalDetails(props) {
                     {title}
                     <HeaderButtons>
                         <div
-                        className="spaceButton">
+                            className="spaceButton">
                             <ButtonSub
-                            onClick={()=>Sub()}/>
+                                onClick={() => Sub()} />
                             <InputText
-                            value={valueInput}
-                            readOnly/>
-                            <ButtonAdd 
-                            onClick={()=>Add()}/>
+                                value={valueInput}
+                                readOnly />
+                            <ButtonAdd
+                                onClick={() => Add()} />
                         </div>
                         R$ {priceValue.toFixed(2)}
                     </HeaderButtons>
@@ -76,10 +79,10 @@ export default function ModalDetails(props) {
                 <BodySection>
                     This combo contains:
                     <LineOrange
-                    width="20%"/>
+                        width="20%" />
                     <BodyTags>
                         <ul>
-                            { tags.map((item) => (
+                            {tags.map((item) => (
                                 <li key={item}>
                                     {item}
                                 </li>
@@ -92,11 +95,11 @@ export default function ModalDetails(props) {
                     </BodyDetails>
                     <BodyFooter>
                         <div
-                        className="buttonFav">
+                            className="buttonFav">
                             <ButtonFav />
                         </div>
                         <ButtonLarge
-                        onClick={()=> AddItemCart()}>
+                            actionClick={() => AddItemCart()}>
                             Adicionar ao Carrinho
                         </ButtonLarge>
                     </BodyFooter>

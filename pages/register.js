@@ -35,7 +35,6 @@ export default function Register() {
         />
         <ViewButtom>
           <ButtonLarge
-            type="Submit"
             actionClick={() => router.push('/dashboard')}>
             Iniciar pedidos
           </ButtonLarge>

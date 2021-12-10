@@ -1,7 +1,7 @@
 import { ButtonContainer } from "./styles";
 
 export function ButtonLarge(props) {
-    const { actionClick, children, type } = props;
+    const { actionClick, children } = props;
 
     function Action() {
         if (actionClick != undefined)
@@ -10,7 +10,6 @@ export function ButtonLarge(props) {
 
     return (
         <ButtonContainer
-            type={type == undefined ? "button" : type}
             onClick={()=> Action()}
         >
             {children}
