@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Fav = styled.button`
+    max-width: 100%;
+    max-height: 100%;
+
     border-radius: 50%;
     padding: 0;
     border: 0;
@@ -12,4 +15,8 @@ export const Fav = styled.button`
     cursor: pointer;
     background-color: rgb(0 0 0 / 0%);
     transition: all .25s;
+
+    .animation {
+        pointer-events: none;
+    }
 `;

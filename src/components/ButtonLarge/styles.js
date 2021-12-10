@@ -16,7 +16,7 @@ export const ButtonContainer = styled.button`
     background: var(--color-bg-primary);
     border: 0;
     border-radius: 10px;
-    box-shadow: 0px 5px 5px var(--color-e4e4e4);
+    box-shadow: 0px 2px 5px var(--color-black-50);
 
     font-size: 1rem;
     line-height: 1.2rem;
@@ -29,5 +29,6 @@ export const ButtonContainer = styled.button`
 
     :hover {
         transform: translateY(-2px) scale(1.01);
+        box-shadow: 0px 3px 5px var(--color-black-50);
     }
 `;

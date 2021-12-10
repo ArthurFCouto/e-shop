@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { NavHeader, Button, Nav, NavLeft } from "./styles";
+import { Button, ContainerHeader, Nav, NavLeft } from "./styles";
 import { InputText } from "../commom"
 import menu from "../../iconsSvg/menu.svg";
 import cart from "../../iconsSvg/cesta.svg";
@@ -12,7 +12,7 @@ export default function Header(props) {
     const { name, clear, search, showCart } = props;
     
     return (
-        <NavHeader>
+        <ContainerHeader> 
             <Nav>
                 <NavLeft>
                     <Link
@@ -68,6 +68,6 @@ export default function Header(props) {
                     />
                 </Button>
             </Nav>
-        </NavHeader>
+        </ContainerHeader>
     )
 }

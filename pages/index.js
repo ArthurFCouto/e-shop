@@ -24,7 +24,7 @@ export default function Home() {
         />
       </div>
       <div className={styles.containerBottom}>
-        <span className={styles.title}>Confira os melhores combo de salada de frutas!</span>
+        <span className={styles.title}>Confira aqui os melhores combo de salada de frutas!</span>
         <span className={styles.subTitle}>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</span>
         <ViewButtom>
           <ButtonLarge

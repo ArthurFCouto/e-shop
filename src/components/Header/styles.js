@@ -70,7 +70,7 @@ export const NavLeft = styled.div`
     }
 `;
 
-export const NavHeader = styled.header`
+export const ContainerHeader = styled.header`
     display: block;
     width: 100%;
     height: 175px;
