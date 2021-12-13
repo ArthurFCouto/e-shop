@@ -3,15 +3,13 @@ import Image from "next/image";
 
 export const Container = styled.main`
     min-width: 375px;
+    display: none;
     
     @media(max-width: 860px) {
         position: relative;
         min-height: 100%;
         display: block;
         background-color: #FFA451;
-    }
-    @media(min-width: 860px) {
-        display: none;
     }
 `;
 

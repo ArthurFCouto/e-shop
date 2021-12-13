@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 1.2rem;
     line-height: 1.4rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-primary);
 }
 
 .subTitle {

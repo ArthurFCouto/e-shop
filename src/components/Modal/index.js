@@ -1,40 +1,42 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import ButtonBack from "../ButtonBack";
-import { ModalBody, ModalHeader, ModalContainer,
-    ModalBack, ModalSup} from "./styles";
-
+import React, { useEffect, useRef, useState } from "react";
+import ButtonIcon from "../ButtonIcon";
+import { ModalContainer, Body } from "./styles";
 
 export default function Modal(props) {
     const { show, onClose, children } = props;
-    const [isBrowser, setIsBrowser] = useState(false);
+    const id = useRef(null);
+    const [modal, setModal] = useState(<div />)
+
+    function Inicialize() {
+        if (show) {
+            setModal(
+                <ModalContainer>
+                    <section className="top"
+                        onClick={() => Close()} />
+                    <Body ref={id}>
+                        <div className="header">
+                            <div className="back" onClick={() => Close()} >
+                                <ButtonIcon icon="back" />
+                                Fechar
+                            </div>
+                        </div>
+                        <div className="children">
+                            {children}
+                        </div>
+                    </Body>
+                </ModalContainer>
+            );
+        } else setModal(<div />);
+    }
+
+    function Close() {
+        id.current.setAttribute("style", "top: 100%;");
+        setTimeout(() => onClose(), 200);
+    }
 
     useEffect(() => {
-        setIsBrowser(true);
-    }, []);
+        Inicialize();
+    }, [show]);
 
-    const modal = show ? (
-        <ModalBack>
-            <ModalSup 
-            onClick={()=> onClose()}/>
-            <ModalContainer>
-                <ModalHeader>
-                    <ButtonBack
-                    onClick={()=> onClose()}/>
-                </ModalHeader>
-                <ModalBody>
-                    {children}
-                </ModalBody>
-            </ModalContainer>
-        </ModalBack>
-    ) : null;
-
-    if (isBrowser) {
-        return ReactDOM.createPortal(
-            modal,
-            document.getElementById("modal-root")
-        );
-    } else {
-        return null;
-    }
+    return modal;
 }

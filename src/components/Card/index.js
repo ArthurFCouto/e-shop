@@ -1,17 +1,15 @@
 import Image from "next/image";
-import {
-    CardPainel, Button, Img,
-    Bottom, Title, Price
-} from "./styles";
-import ButtonAdd from "../ButtonAdd";
-import ButtonFav from "../ButtonFav";
+import { CardPainel, Button, ImageContainer,
+    Bottom, Title, Price } from "./styles";
+import ButtonLottie from "../ButtonLottie";
+import ButtonIcon from "../ButtonIcon";
 
 export default function Card(props) {
     const { addCart, onShow, item, image, title, price } = props;
 
-    function add() {
-        var date = new Date();
-        var idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+    function AddItemCart() {
+        const date = new Date();
+        let idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
         let data = {
             id: idFull,
             image: image,
@@ -25,28 +23,32 @@ export default function Card(props) {
 
     return (
         <CardPainel>
-            <Button>
-                <ButtonFav />
+            <Button
+            top="8px"
+            rigth="8px">
+                <ButtonLottie
+                anim="heart"
+                width={50}
+                height={50} />
             </Button>
-            <Img>
+            <ImageContainer>
                 <Image
-                    onClick={() => onShow(item)}
-                    src={image}
-                    alt="Carregando imagem..."
-                    height="85px"
-                    width="85px"
+                onClick={() => onShow(item)}
+                src={image}
+                alt="Carregando imagem..."
+                height={85}
+                width={85}
                 />
-            </Img>
+            </ImageContainer>
             <Bottom>
                 <Title
-                    onClick={() => onShow(item)}>
+                onClick={() => onShow(item)}>
                     {title}
                 </Title>
                 <Price>
                     R$ {price.toFixed(2)}
-                    <div>
-                        <ButtonAdd
-                            onClick={() => add()} />
+                    <div className="button">
+                        <ButtonIcon icon="add" onClick={() => AddItemCart()}/>
                     </div>
                 </Price>
             </Bottom>

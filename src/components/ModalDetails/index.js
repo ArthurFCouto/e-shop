@@ -1,41 +1,28 @@
 import Image from "next/image";
 import { useState } from "react";
-import ButtonFav from "../ButtonFav";
-import ButtonAdd from "../ButtonAdd";
-import ButtonSub from "../ButtonSub";
+import ButtonIcon from "../ButtonIcon";
 import { ButtonLarge } from "../ButtonLarge";
 import { InputText, LineOrange } from "../commom";
-import {
-    DetailMain, DetailHeader, DetailSection, HeaderSection,
-    HeaderButtons, Divisor, BodySection, BodyTags,
-    BodyDetails, BodyFooter
-} from "./styles";
+import { ContainerModalDetail, BodySection, Divider, Footer, HeaderSection, Tags } from "./styles";
+import ButtonLottie from "../ButtonLottie";
 
 export default function ModalDetails(props) {
-    const [valueInput, setValueInput] = useState(1);
-    const { tags, image, price, title, details } = props.item;
     const { addCart, onClose } = props;
+    const { tags, image, price, title, details } = props.item;
+    const [valueInput, setValueInput] = useState(1);
     const [priceValue, setPriceValue] = useState(price);
 
-    function Add() {
-        let data = valueInput + 1;
+    function Count(count) {
+        let data = valueInput + count;
         if (valueInput < 10) {
-            setValueInput(valueInput + 1);
-            setPriceValue(price * data);
-        }
-    }
-
-    function Sub() {
-        let data = valueInput - 1;
-        if (valueInput > 1) {
-            setValueInput(valueInput - 1);
+            setValueInput(valueInput + count);
             setPriceValue(price * data);
         }
     }
 
     function AddItemCart() {
-        var date = new Date();
-        var idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+        const date = new Date();
+        let idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
         let data = {
             id: idFull,
             image: image,
@@ -49,62 +36,67 @@ export default function ModalDetails(props) {
     }
 
     return (
-        <DetailMain>
-            <DetailHeader>
+        <ContainerModalDetail>
+            <header className="img">
                 <Image
                     src={image}
                     height={100}
                     width={100}
                     alt="Imagem produto"
                 />
-            </DetailHeader>
-            <DetailSection>
+            </header>
+            <section className="section">
                 <HeaderSection>
                     {title}
-                    <HeaderButtons>
-                        <div
-                            className="spaceButton">
-                            <ButtonSub
-                                onClick={() => Sub()} />
+                    <ul>
+                        <li className="count">
+                            <ButtonIcon
+                                icon="sub"
+                                onClick={() => Count(-1)} />
                             <InputText
                                 value={valueInput}
                                 readOnly />
-                            <ButtonAdd
-                                onClick={() => Add()} />
-                        </div>
-                        R$ {priceValue.toFixed(2)}
-                    </HeaderButtons>
+                            <ButtonIcon
+                                icon="add"
+                                onClick={() => Count(1)} />
+                        </li>
+                        <li>
+                            R$ {priceValue.toFixed(2)}
+                        </li>
+                    </ul>
                 </HeaderSection>
-                <Divisor />
+                <Divider />
                 <BodySection>
-                    This combo contains:
-                    <LineOrange
-                        width="20%" />
-                    <BodyTags>
+                    <div className="text">
+                        This combo contains:
+                    </div>
+                    <LineOrange width="25%" />
+                    <Tags>
                         <ul>
-                            {tags.map((item) => (
-                                <li key={item}>
-                                    {item}
-                                </li>
-                            ))}
+                            {
+                                tags.map((item) => (
+                                    <li key={item}>
+                                        {item}
+                                    </li>
+                                ))
+                            }
                         </ul>
-                    </BodyTags>
-                    <Divisor />
-                    <BodyDetails>
+                    </Tags>
+                    <Divider />
+                    <div className="details">
                         {details}
-                    </BodyDetails>
-                    <BodyFooter>
-                        <div
-                            className="buttonFav">
-                            <ButtonFav />
+                    </div>
+                    <Footer>
+                        <div className="buttonFav">
+                            <ButtonLottie width={50} height={50} />
                         </div>
                         <ButtonLarge
                             actionClick={() => AddItemCart()}>
                             Adicionar ao Carrinho
                         </ButtonLarge>
-                    </BodyFooter>
+                    </Footer>
                 </BodySection>
-            </DetailSection>
-        </DetailMain>
+            </section>
+        </ContainerModalDetail>
     )
 }
