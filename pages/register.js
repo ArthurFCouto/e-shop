@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import Link from "next/link";
-import { ButtonLarge } from "../src/components/ButtonLarge";
-import { Container, ViewButtom } from "../src/components/commom";
+import ButtonOrange from "../src/components/ButtonOrange";
+import { Container, InputPerson, ViewButtom } from "../src/components/commom";
 import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit.svg";
 
@@ -10,34 +10,35 @@ export default function Register() {
 
   const router = useRouter();
 
-  function SubmitName(props) {
+  function SubmitName(name) {
     if (localStorage)
-      localStorage.setItem('name', props);
+      localStorage.setItem('name', name);
   }
 
   return (
     <Container>
       <div className={styles.containerTop}>
         <Link
-          href="/"
-          passHref>
+        href="/"
+        passHref>
           <Image
-            src={logo}
-            alt="Carregando imagem..."
+          src={logo}
+          alt="Carregando imagem..."
           />
         </Link>
       </div>
       <div className={styles.containerBottom}>
         <span className={styles.title}>Primeiramente, qual seu nome?</span>
-        <input className={styles.inputData}
-          placeholder="Chris"
-          onChange={(evento) => (SubmitName(evento.target.value))}
+        <InputPerson
+        placeholder="Chris"
+        onChange={(evento) => (SubmitName(evento.target.value))}
         />
         <ViewButtom>
-          <ButtonLarge
-            actionClick={() => router.push('/dashboard')}>
+          <ButtonOrange
+          actionClick={() => router.push('/dashboard')}>
             Iniciar pedidos
-          </ButtonLarge>
+          </ButtonOrange>
+          
         </ViewButtom>
       </div>
     </Container>

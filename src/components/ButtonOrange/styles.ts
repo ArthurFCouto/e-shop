@@ -1,14 +1,14 @@
 
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button`
+export const ContainerButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 10px;
     cursor: pointer;
 
-    width: 90%;
+    width: ${(props)=> props.width};
     height: auto;
     min-height: 44px;
     margin: auto;

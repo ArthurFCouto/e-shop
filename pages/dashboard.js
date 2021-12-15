@@ -9,7 +9,7 @@ import Modal from "../src/components/Modal";
 import NavSugestion from "../src/components/NavSugestion";
 import NavMenuBottom from "../src/components/NavMenuBottom";
 import ModalDetails from "../src/components/ModalDetails";
-import ModalCart from "../src/components/ModalCart";
+import Cart from "../src/components/Cart";
 import { productList, buttonSugestions } from "./api/dblist";
 
 export default function Dashboard() {
@@ -37,7 +37,9 @@ export default function Dashboard() {
       const newList = productList.filter((item)=> (
         item.title.toUpperCase().includes(data.toUpperCase())
       ))
-      setDataCard(SetDataCardArray(newList));
+      setDataCard(
+        SetDataCardArray(newList)
+      );
     }
   }
 
@@ -114,7 +116,6 @@ export default function Dashboard() {
           </MainLinear>
         </SectionCards>
       </ViewMain>
-
       <Modal
         onClose={() => setShowModal(false)}
         show={showModal}>
@@ -124,14 +125,12 @@ export default function Dashboard() {
           onClose={() => setShowModal(false)}
         />
       </Modal>
-
-      <ModalCart
+      <Cart
         onClose={() => setShowCart(false)}
         show={showCart}
         item={itemCart}
         removeItemCart={(obj) => RemoveItemCart(obj)}
       />
-
     </Container>
   )
 }

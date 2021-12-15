@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { DivExit } from "../commom";
 import ButtonIcon from "../ButtonIcon";
 import { ModalContainer, Body } from "./styles";
 
@@ -15,10 +16,10 @@ export default function Modal(props) {
                         onClick={() => Close()} />
                     <Body ref={id}>
                         <div className="header">
-                            <div className="back" onClick={() => Close()} >
+                            <DivExit onClick={() => Close()} >
                                 <ButtonIcon icon="back" />
                                 Fechar
-                            </div>
+                            </DivExit>
                         </div>
                         <div className="children">
                             {children}

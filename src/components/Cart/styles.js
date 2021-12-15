@@ -10,6 +10,7 @@ export const CartMain = styled.main`
     flex-direction: column;
     justify-content: center;
     background-color: #FFFFFF;
+    z-index: 10;
     animation: openCart .5s;
 `;
 

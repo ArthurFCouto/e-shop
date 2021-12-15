@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
+import { DivExit } from "../commom";
 import Image from "next/image";
-import {
-    CartBody, CartFooter, CartHeader,
-    CartList, CartMain
-} from "./styles";
-import { ButtonLarge } from "../ButtonLarge";
-import ButtonSub from "../ButtonSub";
-import ButtonBack from "../ButtonBack";
+import { CartBody, CartFooter, CartHeader, CartList, CartMain } from "./styles";
+import ButtonOrange from "../ButtonOrange";
+import ButtonIcon from "../ButtonIcon";
 
 export default function ModalCart(props) {
     const { onClose, show, item, removeItemCart } = props;
@@ -32,8 +29,8 @@ export default function ModalCart(props) {
     }
 
     function Redirect() {
-        let text = itemShow.reduce((total, obj) => total += obj.title + " - " + obj.count + "unid. \n", "");
-        var urlEncode = window.encodeURIComponent("Resumo do pedido:\n" + text + "\n R$ " + priceTotal.toFixed(2));
+        const text = itemShow.reduce((total, obj) => total += obj.title + " - " + obj.count + "unid. \n", "");
+        const urlEncode = window.encodeURIComponent("Resumo do pedido:\n" + text + "\n R$ " + priceTotal.toFixed(2));
         window.open("https://api.whatsapp.com/send?phone=5538999414205&text=" + urlEncode);
         onClose();
     }
@@ -43,9 +40,11 @@ export default function ModalCart(props) {
             {show && (
                 <CartMain>
                     <CartHeader>
-                        <ButtonBack
-                            onClick={() => onClose()} />
-                        My Basket
+                        <DivExit onClick={() => onClose()}>
+                            <ButtonIcon icon="back" />
+                            Fechar
+                        </DivExit>
+                        Carrinho
                     </CartHeader>
                     <CartBody>
                         <CartList>
@@ -67,8 +66,7 @@ export default function ModalCart(props) {
                                         <span className="itemPrice">R$ {data.price.toFixed(2)}</span>
                                     </div>
                                     <div className="detailsButton">
-                                        <ButtonSub
-                                            onClick={() => Sub(data.id)} />
+                                        <ButtonIcon icon="sub" onClick={() => Sub(data.id)} />
                                     </div>
                                 </li>
                             ))}
@@ -80,10 +78,10 @@ export default function ModalCart(props) {
                             <span className="footerPrice">R$ {priceTotal.toFixed(2)}</span>
                         </div>
                         <div>
-                            <ButtonLarge
-                                actionClick={() => Redirect()}>
+                            <ButtonOrange
+                            actionClick={() => Redirect()}>
                                 Checkout
-                            </ButtonLarge>
+                            </ButtonOrange>
                         </div>
                     </CartFooter>
                 </CartMain>

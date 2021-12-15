@@ -108,6 +108,8 @@ export const Tags = styled.div`
     font-size: 0.75rem;
     line-height: 1rem;
 
+    padding: 5px 0;
+
     ul {
         display: flex;
         align-items: center;

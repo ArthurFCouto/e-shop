@@ -64,7 +64,7 @@ export const productList = [
     {
         id : 4,
         image : p5,
-        title : "Salada de Frutaa Tropical",
+        title : "Salada de Frutas Tropical",
         price : 13.99,
         details: "Uma salada que combina com você a qualquer hora. A salada de frutas tropicais é perfeita.",
         tags : [

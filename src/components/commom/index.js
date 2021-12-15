@@ -13,6 +13,31 @@ export const Container = styled.main`
     }
 `;
 
+export const DivExit = styled.div`
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+
+    width: 75px;
+    height: 30px;
+    padding: 5px 10px;;
+    border-radius: 100px;
+
+    white-space: nowrap;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--color-text-primary);
+
+    transition: 0.25s;
+
+    :hover{
+        cursor: pointer;
+        box-shadow: 0px 4px 2px rgb(0 0 0 / 25%), 0px 0px 1px rgb(0 0 0 / 25%);
+    }
+`;
+
 export const ViewButtom = styled.section`
     width: 100%;
     display: block;
@@ -72,6 +97,25 @@ export const InputText = styled.input`
     border-radius: 10px;
     border: 0;
 
+    ::placeholder {
+        color: #C2BDBD;
+    }
+`;
+
+export const InputPerson = styled.input`
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 10px;
+
+    text-align: left;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    background: var(--color-bg-clear);
+    border-radius: 10px;
+    border: 0;
+    
     ::placeholder {
         color: #C2BDBD;
     }

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import ButtonIcon from "../ButtonIcon";
-import { ButtonLarge } from "../ButtonLarge";
-import { InputText, LineOrange } from "../commom";
+import ButtonOrange from "../ButtonOrange";
+import { InputPerson, LineOrange } from "../commom";
 import { ContainerModalDetail, BodySection, Divider, Footer, HeaderSection, Tags } from "./styles";
 import ButtonLottie from "../ButtonLottie";
 
@@ -53,7 +53,7 @@ export default function ModalDetails(props) {
                             <ButtonIcon
                                 icon="sub"
                                 onClick={() => Count(-1)} />
-                            <InputText
+                            <InputPerson
                                 value={valueInput}
                                 readOnly />
                             <ButtonIcon
@@ -90,10 +90,11 @@ export default function ModalDetails(props) {
                         <div className="buttonFav">
                             <ButtonLottie width={50} height={50} />
                         </div>
-                        <ButtonLarge
-                            actionClick={() => AddItemCart()}>
-                            Adicionar ao Carrinho
-                        </ButtonLarge>
+                        <ButtonOrange
+                        actionClick={() => AddItemCart()}
+                        width="55%">
+                            Adicionar
+                        </ButtonOrange>
                     </Footer>
                 </BodySection>
             </section>
