@@ -6,7 +6,6 @@ import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit2.svg";
 
 export default function Home() {
-
   const router = useRouter();
 
   function action() {
@@ -17,8 +16,8 @@ export default function Home() {
     <Container>
       <div className={styles.containerTop}>
         <Image
-        src={logo}
-        alt="Carregando imagem..."
+          src={logo}
+          alt="Carregando imagem..."
         />
       </div>
       <div className={styles.containerBottom}>
@@ -26,8 +25,8 @@ export default function Home() {
         <span className={styles.subTitle}>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</span>
         <ViewButtom>
           <ButtonOrange
-          actionClick={()=> action()}>
-              Continuar
+            actionClick={() => action()}>
+            Continuar
           </ButtonOrange>
         </ViewButtom>
       </div>

@@ -6,23 +6,22 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     overflow-x: auto;
-    background-color: #FAFAFA;
+    background-color: var(--color-divider);
 `;
 
 export const NavButton = styled.button`
     padding: 5px 15px;
     margin: 10px 5px;
 
-    background-color: #fff;
+    background-color: var(--color-white);
     border: 0;
 
-    color: #333333;
-    font-size: 14px;
-    line-height: 16px;
+    color: var(--color-text);
+    font-size: 0.9rem;
     border-radius: 10px;
     white-space: nowrap;
 
-    transition: 0.25s;
+    transition: all 0.25s;
 
     :hover{
         cursor: pointer;

@@ -35,7 +35,7 @@ export const ImageContainer = styled.div`
     align-items: center;
     z-index: 1;
 `;
-  
+
 export const Bottom = styled.main`
     height: 40%;
     width: 100%;
@@ -49,7 +49,7 @@ export const Bottom = styled.main`
     flex-direction: column;
     justify-content: center;
 `;
-  
+
 export const Title = styled.div`
     width: 100%;
     margin: 5px 0;
@@ -68,7 +68,7 @@ export const Title = styled.div`
         text-shadow: 0px 2px 1px rgb(0 0 0 / 15%), 0px 0px 1px rgb(0 0 0 / 35%);
     }
 `;
-  
+
 export const Price = styled.div`
     width: 100%;
     margin: 5px 0;

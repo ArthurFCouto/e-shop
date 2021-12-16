@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { CardPainel, Button, ImageContainer,
-    Bottom, Title, Price } from "./styles";
+import {
+    CardPainel, Button, ImageContainer,
+    Bottom, Title, Price
+} from "./styles";
 import ButtonLottie from "../ButtonLottie";
 import ButtonIcon from "../ButtonIcon";
 
@@ -24,31 +26,31 @@ export default function Card(props) {
     return (
         <CardPainel>
             <Button
-            top="8px"
-            rigth="8px">
+                top="8px"
+                rigth="8px">
                 <ButtonLottie
-                anim="heart"
-                width={50}
-                height={50} />
+                    anim="heart"
+                    width={50}
+                    height={50} />
             </Button>
             <ImageContainer>
                 <Image
-                onClick={() => onShow(item)}
-                src={image}
-                alt="Carregando imagem..."
-                height={85}
-                width={85}
+                    onClick={() => onShow(item)}
+                    src={image}
+                    alt="Carregando imagem..."
+                    height={85}
+                    width={85}
                 />
             </ImageContainer>
             <Bottom>
                 <Title
-                onClick={() => onShow(item)}>
+                    onClick={() => onShow(item)}>
                     {title}
                 </Title>
                 <Price>
                     R$ {price.toFixed(2)}
                     <div className="button">
-                        <ButtonIcon icon="add" onClick={() => AddItemCart()}/>
+                        <ButtonIcon icon="add" actionClick={() => AddItemCart()} />
                     </div>
                 </Price>
             </Bottom>

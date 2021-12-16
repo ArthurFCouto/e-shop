@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DivExit } from "../commom";
 import Image from "next/image";
-import { CartBody, CartFooter, CartHeader, CartList, CartMain } from "./styles";
+import { ContainerCart, CartBody, CartFooter } from "./styles";
 import ButtonOrange from "../ButtonOrange";
 import ButtonIcon from "../ButtonIcon";
 
@@ -9,22 +9,71 @@ export default function ModalCart(props) {
     const { onClose, show, item, removeItemCart } = props;
     const [priceTotal, setPriceTotal] = useState(0);
     const [itemShow, setItemShow] = useState([]);
+    const [showBody, setShowBody] = useState(<div />);
+    const body = (
+        <ContainerCart >
+            <header>
+                <DivExit onClick={() => onClose()}>
+                    <ButtonIcon icon="back" />
+                    Fechar
+                </DivExit>
+                <span>Carrinho</span>
+            </header>
+            <CartBody>
+                <ul>
+                    {
+                        itemShow.map((data) => (
+                            <li className="item" key={data.id}>
+                                <div className="img">
+                                    <Image
+                                        src={data.image}
+                                        alt="Carregando imagem..."
+                                        height={50}
+                                        width={50}
+                                    />
+                                </div>
+                                <div className="details">
+                                    {data.title} &nbsp;
+                                    <span className="itemCount">{data.count}unidades</span>
+                                    <span className="itemPrice">R$ {data.price.toFixed(2)}</span>
+                                </div>
+                                <div className="button">
+                                    <ButtonIcon
+                                        icon="sub"
+                                        actionClick={() => Remove(data.id)} />
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </CartBody>
+            <CartFooter>
+                <div className="footer">
+                    Total
+                    <span>R$ {priceTotal.toFixed(2)}</span>
+                </div>
+                <ButtonOrange
+                    actionClick={() => Redirect()}>
+                    Checkout
+                </ButtonOrange>
+            </CartFooter>
+        </ContainerCart>
+    );
 
     useEffect(function () {
-        Inicialize();
-    }, [item]);
-
-    function Inicialize() {
         let total = item.reduce((total, obj) => total += obj.price, 0);
         setPriceTotal(total);
         setItemShow(item);
-    }
+        if (show) {
+            setShowBody(body);
+        } else setShowBody(<div />)
+    }, [show, item]);
 
-    function Sub(id) {
+    function Remove(id) {
         const newItem = itemShow.filter((obj) => (obj.id != id));
         let total = newItem.reduce((total, obj) => total += obj.price, 0);
-        setItemShow(newItem);
         setPriceTotal(total);
+        setItemShow(newItem);
         removeItemCart(newItem);
     }
 
@@ -36,56 +85,6 @@ export default function ModalCart(props) {
     }
 
     return (
-        <>
-            {show && (
-                <CartMain>
-                    <CartHeader>
-                        <DivExit onClick={() => onClose()}>
-                            <ButtonIcon icon="back" />
-                            Fechar
-                        </DivExit>
-                        Carrinho
-                    </CartHeader>
-                    <CartBody>
-                        <CartList>
-                            {itemShow.map((data) => (
-                                <li
-                                    className="listItem"
-                                    key={data.id}>
-                                    <div className="detailsImagem">
-                                        <Image
-                                            src={data.image}
-                                            alt="Carregando imagem..."
-                                            height={50}
-                                            width={50}
-                                        />
-                                    </div>
-                                    <div className="detailsItem">
-                                        {data.title}
-                                        <span className="itemCount">{data.count}packs</span>
-                                        <span className="itemPrice">R$ {data.price.toFixed(2)}</span>
-                                    </div>
-                                    <div className="detailsButton">
-                                        <ButtonIcon icon="sub" onClick={() => Sub(data.id)} />
-                                    </div>
-                                </li>
-                            ))}
-                        </CartList>
-                    </CartBody>
-                    <CartFooter>
-                        <div className="footer">
-                            Total
-                            <span className="footerPrice">R$ {priceTotal.toFixed(2)}</span>
-                        </div>
-                        <div>
-                            <ButtonOrange
-                            actionClick={() => Redirect()}>
-                                Checkout
-                            </ButtonOrange>
-                        </div>
-                    </CartFooter>
-                </CartMain>
-            )}
-        </>
+        showBody
     )
 }

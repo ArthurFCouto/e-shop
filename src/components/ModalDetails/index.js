@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
-import ButtonIcon from "../ButtonIcon";
-import ButtonOrange from "../ButtonOrange";
 import { InputPerson, LineOrange } from "../commom";
 import { ContainerModalDetail, BodySection, Divider, Footer, HeaderSection, Tags } from "./styles";
+import ButtonIcon from "../ButtonIcon";
+import ButtonOrange from "../ButtonOrange";
 import ButtonLottie from "../ButtonLottie";
 
 export default function ModalDetails(props) {
@@ -14,7 +14,7 @@ export default function ModalDetails(props) {
 
     function Count(count) {
         let data = valueInput + count;
-        if (valueInput < 10) {
+        if (data <= 10 && data >= 1) {
             setValueInput(valueInput + count);
             setPriceValue(price * data);
         }
@@ -52,13 +52,13 @@ export default function ModalDetails(props) {
                         <li className="count">
                             <ButtonIcon
                                 icon="sub"
-                                onClick={() => Count(-1)} />
+                                actionClick={() => Count(-1)} />
                             <InputPerson
                                 value={valueInput}
                                 readOnly />
                             <ButtonIcon
                                 icon="add"
-                                onClick={() => Count(1)} />
+                                actionClick={() => Count(1)} />
                         </li>
                         <li>
                             R$ {priceValue.toFixed(2)}
@@ -91,8 +91,8 @@ export default function ModalDetails(props) {
                             <ButtonLottie width={50} height={50} />
                         </div>
                         <ButtonOrange
-                        actionClick={() => AddItemCart()}
-                        width="55%">
+                            actionClick={() => AddItemCart()}
+                            width="55%">
                             Adicionar
                         </ButtonOrange>
                     </Footer>

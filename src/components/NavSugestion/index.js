@@ -5,13 +5,15 @@ export default function NavSugestion(props) {
     
     return(
         <Nav>
-            { data.map(item => (
+            {
+                data.map(item => (
                     <NavButton
                     key={item}
                     onClick={()=> search(item)}>
                         {item}
                     </NavButton>
-            ))}
+                ))
+            }
         </Nav>
     )
 }

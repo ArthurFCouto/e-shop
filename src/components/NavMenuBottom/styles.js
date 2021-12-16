@@ -22,9 +22,7 @@ export const ButtonBlock = styled.button`
     font-size: 1rem;
     line-height: 1.9rem;
 
-    color: #27214D;
-    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
     border: 0;
-
-    display: block;
 `;

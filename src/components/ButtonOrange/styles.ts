@@ -8,7 +8,7 @@ export const ContainerButton = styled.button`
     padding: 15px 10px;
     cursor: pointer;
 
-    width: ${(props)=> props.width};
+    width: ${(props) => props.width};
     height: auto;
     min-height: 44px;
     margin: auto;

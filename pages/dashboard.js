@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Container, LineOrange, MainGrid, MainLinear,
-  SectionCards, TitleMain, ViewMain
-} from "../src/components/commom";
+import { Container, LineOrange, MainGrid, MainLinear, TitleMain, ViewMain } from "../src/components/commom";
 import Card from "../src/components/Card";
 import Header from "../src/components/Header";
 import Modal from "../src/components/Modal";
@@ -33,8 +30,8 @@ export default function Dashboard() {
   }
 
   function Search(data) {
-    if((data != undefined) && (data.trim().length>0)) {
-      const newList = productList.filter((item)=> (
+    if ((data != undefined) && (data.trim().length > 0)) {
+      const newList = productList.filter((item) => (
         item.title.toUpperCase().includes(data.toUpperCase())
       ))
       setDataCard(
@@ -94,27 +91,23 @@ export default function Dashboard() {
         search={(text) => Search(text)}
       />
       <ViewMain>
-        <SectionCards>
+        <section>
           <TitleMain>Combos recomendados</TitleMain>
-          <LineOrange
-            width="20%"
-          />
+          <LineOrange width="20%" />
           <MainGrid>
             {dataCard}
-            {dataCard.length == 0 && (
-              <TitleMain>Sem combos para exibir.</TitleMain>
-            )}
+            {dataCard.length == 0 && (<TitleMain>Sem combos para exibir.</TitleMain>)}
           </MainGrid>
-        </SectionCards>
+        </section>
         <NavMenuBottom />
-        <SectionCards>
+        <section>
           <MainLinear>
             {dataCard}
             {dataCard.length == 0 && (
               <TitleMain>Sem combos para exibir.</TitleMain>
             )}
           </MainLinear>
-        </SectionCards>
+        </section>
       </ViewMain>
       <Modal
         onClose={() => setShowModal(false)}

@@ -1,97 +1,89 @@
 import styled from "styled-components";
 
-export const CartMain = styled.main`
+export const ContainerCart = styled.main`
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #FFFFFF;
+    display: block;
+    background-color: var(--color-white);
     z-index: 10;
-    animation: openCart .5s;
+    transition: all .3s;
+    animation: opacityOpenCart .3s;
+
+    header {
+        height: 10%;
+        padding: 15px;
+
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: var(--color-white);
+        background: var(--color-bg-primary);
+    }
 `;
 
-export const CartHeader = styled.header`
-    height: 10%;
-    padding: 15px;
 
-    font-weight: 500;
-    font-size: 1.2rem;
-    line-height: 2rem;
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    letter-spacing: -0.01em;
-
-    color: #FFFFFF;
-    background: #FFA451;
-`;
 
 export const CartBody = styled.section`
     height: 75%;
     overflow-y: auto;
-`;
+    
+    ul {
+        padding: 5px;
+        width: 100%;
 
-export const CartList = styled.ul`
-    padding: 5px;
-    width: 100%;
+        .item {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 20% 55% 20%;
+            margin: 8px 0;
+        }
 
-    .listItem {
-        display: grid;
-        grid-gap: 5px;
-        grid-template-columns: 20% 55% 20%;
-        margin: 8px 0;
-    }
+        .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    .detailsImagem {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+            background-color: var(--color-bg-clear);
+            border-radius: 16px;
+        }
 
-        background-color: #F1EFF6;
-        border-radius: 16px;
-    }
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 5px;
 
-    .detailsItem {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding-left: 5px;
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: var(--color-text);
 
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        letter-spacing: -0.01em;
+            .itemCount {
+                font-weight: 300;
+                font-size: 0.8rem;
+                line-height: 1.1rem;
+            }
 
-        color: #333333;
-    }
+            .itemPrice {
+                color: var(--color-text-primary);
+                line-height: 1.2rem;
+            }
+        }
 
-    .itemCount {
-        font-weight: 300;
-        font-size: 0.8rem;
-        line-height: 1.1rem;
-
-        color: #000000;
-    }
-
-    .itemPrice {
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 1.2rem;
-
-        color: #27214D;
-    }
-
-    .detailsButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 `;
 
@@ -108,19 +100,18 @@ export const CartFooter = styled.footer`
         font-weight: 300;
         font-size: 0.9rem;
         line-height: 1rem;
-
-        color: #333333;
+        color: var(--color-text);
 
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-    }
 
-    .footerPrice {
-        font-weight: 500;
-        font-size: 1.5rem;
-        line-height: 2rem;
+        span {
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 2rem;
 
-        color: #27214D;
+            color: var(--color-text-primary);
+        }
     }
 `;

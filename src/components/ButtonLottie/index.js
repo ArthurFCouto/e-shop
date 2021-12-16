@@ -37,7 +37,7 @@ export default function ButtonLottie(props) {
           direction: directionAnimated,
         });
         setAnimationActive(!animationActive);
-        if(action)
+        if (action)
           action();
       }}
     >
