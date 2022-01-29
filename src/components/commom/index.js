@@ -7,6 +7,7 @@ export const Container = styled.main`
     
     @media(max-width: 860px) {
         position: relative;
+        height: 100%;
         min-height: 100%;
         display: block;
         background-color: var(--color-bg-primary);
@@ -80,6 +81,7 @@ export const InputPerson = styled.input`
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.5rem;
+    letter-spacing: 0.1rem;
 
     background: var(--color-bg-clear);
     border-radius: 10px;

@@ -13,6 +13,7 @@
 
 html,
 body {
+  height: 100%;
   min-height: 100vh;
   min-width: 100%;
   font-size: 16px;
@@ -24,6 +25,10 @@ body {
   box-sizing: border-box;
   display: block;
   scroll-behavior: smooth;
+}
+
+#__next {
+  height: 100%;
 }
 
 * {

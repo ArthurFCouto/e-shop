@@ -21,8 +21,8 @@ export default function Home() {
         />
       </div>
       <div className={styles.containerBottom}>
-        <span className={styles.title}>Confira aqui os melhores combo de salada de frutas!</span>
-        <span className={styles.subTitle}>Oferecemos a melhor combinação de saladas de frutas frescas da cidade. Peça já seu combo!!!</span>
+        <span className={styles.title}>Bem vindo ao Frexco hortifruti!</span>
+        <span className={styles.subTitle}>Confira aqui as melhores informações sobre frutas da sua região!!!</span>
         <ViewButtom>
           <ButtonOrange
             actionClick={() => action()}>

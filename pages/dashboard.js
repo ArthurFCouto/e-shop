@@ -19,13 +19,18 @@ export default function Dashboard() {
   const [itemCart, setItemCart] = useState([]);
   const [linksExample, setLinksExample] = useState([]);
 
-  useEffect(function () {
-    Inicialize();
-  }, [itemCart]);
-
   function Inicialize() {
+    let head = new Headers();
+    head.append('Content-Type', 'application/json');
+    head.append('Accept', 'application/json');
+    fetch("https://www.fruityvice.com/api/fruit/all", {
+      headers: head
+    })
+      .then((res) => res.json())
+      .then((response) => console.log(response))
+      .catch((erro) => console.log(erro))
     if (localStorage)
-      setName(localStorage.getItem('name') === null ? "Visitante" : localStorage.getItem('name'));
+      setName(localStorage.getItem('name') === null ? 'Visitante' : localStorage.getItem('name'));
     ClearArray();
   }
 
@@ -77,6 +82,10 @@ export default function Dashboard() {
   function RemoveItemCart(obj) {
     setItemCart(obj);
   }
+
+  useEffect(function () {
+    Inicialize();
+  }, [itemCart]);
 
   return (
     <Container>

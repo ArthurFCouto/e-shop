@@ -25,8 +25,8 @@ export default function Register() {
       <div className={styles.containerBottom}>
         <span className={styles.title}>Primeiramente, qual seu nome?</span>
         <InputPerson
-          placeholder="Chris"
-          onChange={(evento) => (SubmitName(evento.target.value))}
+          placeholder="Matheus"
+          onChange={(evento) => SubmitName(evento.target.value)}
         />
         <ViewButtom>
           <ButtonOrange

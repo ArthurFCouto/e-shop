@@ -78,8 +78,8 @@ export default function ModalCart(props) {
     }
 
     function Redirect() {
-        const text = itemShow.reduce((total, obj) => total += obj.title + " - " + obj.count + "unid. \n", "");
-        const urlEncode = window.encodeURIComponent("Resumo do pedido:\n" + text + "\n R$ " + priceTotal.toFixed(2));
+        const text = itemShow.reduce((total, obj) => `${total}[${obj.id}] ${obj.title} - ${obj.count} unid. \n`, "");
+        const urlEncode = window.encodeURIComponent(`*Resumo do pedido:*\n${text}\nValor total: *R$ ${priceTotal.toFixed(2)}*`);
         window.open("https://api.whatsapp.com/send?phone=5538999414205&text=" + urlEncode);
         onClose();
     }
