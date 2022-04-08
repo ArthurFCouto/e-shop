@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const Nav = styled.nav`
+export const Line = styled.nav`
     margin: 0;
     padding: 5px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     overflow-x: auto;
     background-color: var(--color-divider);
 `;
@@ -25,6 +26,6 @@ export const NavButton = styled.button`
 
     :hover{
         cursor: pointer;
-        box-shadow: 0px 4px 2px rgb(0 0 0 / 25%), 0px 0px 1px rgb(0 0 0 / 25%);
+        box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 0px 1px rgb(0, 0, 0, 0.25);
     }
 `;

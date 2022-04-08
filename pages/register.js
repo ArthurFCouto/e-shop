@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import ButtonOrange from "../src/components/ButtonOrange";
-import { Container, InputPerson, ViewButtom } from "../src/components/commom";
+import { Container, InputCustomer } from "../src/components/commom";
 import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit.svg";
 
@@ -18,22 +18,20 @@ export default function Register() {
       <div className={styles.containerTop}>
         <Image
           src={logo}
-          alt="Carregando imagem..."
+          alt="logo e-shop"
           onClick={() => router.push('/')}
         />
       </div>
       <div className={styles.containerBottom}>
         <span className={styles.title}>Primeiramente, qual seu nome?</span>
-        <InputPerson
-          placeholder="Matheus"
-          onChange={(evento) => SubmitName(evento.target.value)}
+        <InputCustomer
+          placeholder="Visitante"
+          onChange={(event) => SubmitName(event.target.value)}
         />
-        <ViewButtom>
-          <ButtonOrange
-            actionClick={() => router.push('/dashboard')}>
-            Iniciar pedidos
-          </ButtonOrange>
-        </ViewButtom>
+        <ButtonOrange
+          actionClick={() => router.push('/dashboard')}>
+          Iniciar pedidos
+        </ButtonOrange>
       </div>
     </Container>
   )

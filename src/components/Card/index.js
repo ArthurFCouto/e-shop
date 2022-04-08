@@ -5,9 +5,11 @@ import {
 } from "./styles";
 import ButtonLottie from "../ButtonLottie";
 import ButtonIcon from "../ButtonIcon";
+import { productContext } from "../../context/ProductContext";
 
 export default function Card(props) {
-    const { addCart, onShow, item, image, title, price } = props;
+    const { add:addCart } = productContext();
+    const { onShow, item, image, title, price } = props;
 
     function AddItemCart() {
         const date = new Date();

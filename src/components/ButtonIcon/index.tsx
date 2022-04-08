@@ -5,10 +5,10 @@ import back from "../../iconsSvg/back.svg";
 import sub from "../../iconsSvg/sub.svg";
 import { ContainerButton } from "./styles";
 
-type IconProps = {
+interface IconProps {
   icon: "add" | "back" | "sub";
   actionClick?: Function;
-};
+}
 
 export default function ButtonIcon({
   icon,

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import ButtonOrange from "../src/components/ButtonOrange";
-import { Container, ViewButtom } from "../src/components/commom";
+import { Container } from "../src/components/commom";
 import styles from '../styles/Home.module.css';
 import logo from "../src/iconsSvg/fruit2.svg";
 
@@ -17,18 +17,16 @@ export default function Home() {
       <div className={styles.containerTop}>
         <Image
           src={logo}
-          alt="Carregando imagem..."
+          alt="Logo e-shop"
         />
       </div>
       <div className={styles.containerBottom}>
-        <span className={styles.title}>Bem vindo ao Frexco hortifruti!</span>
-        <span className={styles.subTitle}>Confira aqui as melhores informações sobre frutas da sua região!!!</span>
-        <ViewButtom>
-          <ButtonOrange
-            actionClick={() => action()}>
-            Continuar
-          </ButtonOrange>
-        </ViewButtom>
+        <span className={styles.title}>Bem vindo e-shop Saladas!</span>
+        <span className={styles.subTitle}>Confira aqui as melhores saladas de frutas da sua região!!!</span>
+        <ButtonOrange
+          actionClick={() => action()}>
+          Continuar
+        </ButtonOrange>
       </div>
     </Container>
   )

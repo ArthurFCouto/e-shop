@@ -66,6 +66,14 @@ export const CartBody = styled.section`
             font-size: 1rem;
             line-height: 1.5rem;
             color: var(--color-text);
+            
+            .itemName {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; /* number of lines to show */
+                -webkit-box-orient: vertical;
+            }
 
             .itemCount {
                 font-weight: 300;

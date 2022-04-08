@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button, ContainerHeader, Line } from "./styles";
-import { InputPerson } from "../commom"
+import { InputCustomer } from "../commom"
 import menu from "../../iconsSvg/menu.svg";
 import cart from "../../iconsSvg/cesta.svg";
 import filter from '../../iconsSvg/filter.svg';
@@ -40,19 +40,16 @@ export default function Header(props) {
             </Line>
             <Line>
                 <form
-                    onSubmit={(evento) => {
-                        evento.preventDefault();
-                        const data = new FormData(evento.target);
-                        const text = data.get('search');
-                        search(text);
+                    onSubmit={(event) => {
+                        event.preventDefault();
+                        search(valueInput);
                     }}>
-                    <InputPerson
+                    <InputCustomer
                         placeholder="Pesquisar..."
                         type="search"
-                        name="search"
                         autoComplete="false"
                         value={valueInput}
-                        onChange={(evento) => setValueInput(evento.target.value)}
+                        onChange={(event) => setValueInput(event.target.value)}
                     />
                 </form>
                 <Button

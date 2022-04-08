@@ -1,6 +1,12 @@
 
 import styled from "styled-components";
 
+export const ViewButtom = styled.section`
+    width: 100%;
+    margin: auto;
+    padding: 10px 5px;
+`;
+
 export const ContainerButton = styled.button`
     display: flex;
     justify-content: center;
@@ -28,7 +34,7 @@ export const ContainerButton = styled.button`
     transition: all .2s ease-in-out;
 
     :hover {
-        transform: translateY(-2px) scale(1.01);
+        transform: translateY(-1px) scale(1.01);
         box-shadow: 0px 3px 5px var(--color-black-50);
     }
 `;

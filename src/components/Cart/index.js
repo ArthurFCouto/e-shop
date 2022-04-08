@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { DivExit } from "../commom";
 import Image from "next/image";
 import { ContainerCart, CartBody, CartFooter } from "./styles";
 import ButtonOrange from "../ButtonOrange";
 import ButtonIcon from "../ButtonIcon";
+import { productContext } from "../../context/ProductContext";
 
 export default function ModalCart(props) {
-    const { onClose, show, item, removeItemCart } = props;
+    const { onClose, show } = props;
+    const { itemCart:item, remove } = productContext();
     const [priceTotal, setPriceTotal] = useState(0);
     const [itemShow, setItemShow] = useState([]);
     const [showBody, setShowBody] = useState(<div />);
@@ -33,8 +35,8 @@ export default function ModalCart(props) {
                                     />
                                 </div>
                                 <div className="details">
-                                    {data.title} &nbsp;
-                                    <span className="itemCount">{data.count}unidades</span>
+                                    <span className="itemName">{data.title}&nbsp;</span>
+                                    <span className="itemCount">{data.count}&nbsp;unidades</span>
                                     <span className="itemPrice">R$ {data.price.toFixed(2)}</span>
                                 </div>
                                 <div className="button">
@@ -74,7 +76,7 @@ export default function ModalCart(props) {
         let total = newItem.reduce((total, obj) => total += obj.price, 0);
         setPriceTotal(total);
         setItemShow(newItem);
-        removeItemCart(newItem);
+        remove(newItem);
     }
 
     function Redirect() {

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
     display: block;
-    width: 100%;
     height: 150px;
+    width: 100%;
 `;
 
 export const Line = styled.nav`
@@ -17,10 +17,14 @@ export const Line = styled.nav`
     .itemLeft {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        max-width: 60%;
+        column-gap: 1rem;
 
         h2 {
-            margin-left: 1rem;
-            text-overflow: ellipse;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
         }
     }
@@ -47,9 +51,9 @@ export const Button = styled.button`
     border: 0;
     background: var(--color-white);
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05), 0px 0px 1px rgba(0, 0, 0, 0.25);
-    transition: 0.25s;
+    transition: box-shadow 0.25s;
 
     :hover {
-        box-shadow: 0px 2px 1px rgb(0 0 0 / 25%), 0px 0px 1px rgb(0 0 0 / 50%)
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25), 0px 0px 1px rgba(0, 0, 0, 0.5);
     }
 `;

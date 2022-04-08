@@ -5,9 +5,11 @@ import { ContainerModalDetail, BodySection, Divider, Footer, HeaderSection, Tags
 import ButtonIcon from "../ButtonIcon";
 import ButtonOrange from "../ButtonOrange";
 import ButtonLottie from "../ButtonLottie";
+import { productContext } from "../../context/ProductContext";
 
 export default function ModalDetails(props) {
-    const { addCart, onClose } = props;
+    const { add:addCart } = productContext();
+    const { onClose } = props;
     const { tags, image, price, title, details } = props.item;
     const [valueInput, setValueInput] = useState(1);
     const [priceValue, setPriceValue] = useState(price);

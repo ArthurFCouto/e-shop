@@ -1,25 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
-import { DivExit } from "../commom";
 import ButtonIcon from "../ButtonIcon";
 import { ModalContainer, Body } from "./styles";
 
 export default function Modal(props) {
     const { show, onClose, children } = props;
     const id = useRef(null);
-    const [modal, setModal] = useState(<div />)
+    const [modal, setModal] = useState(<></>)
 
     function Inicialize() {
         if (show) {
             setModal(
                 <ModalContainer>
-                    <section className="top"
-                        onClick={() => Close()} />
+                    <div className="top" onClick={() => Close()} />
                     <Body ref={id}>
                         <div className="header">
-                            <DivExit onClick={() => Close()} >
+                            <div className="buttonExit" onClick={() => Close()} >
                                 <ButtonIcon icon="back" />
                                 Fechar
-                            </DivExit>
+                            </div>
                         </div>
                         <div className="children">
                             {children}
@@ -27,7 +25,7 @@ export default function Modal(props) {
                     </Body>
                 </ModalContainer>
             );
-        } else setModal(<div />);
+        } else setModal(<></>);
     }
 
     function Close() {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, LineOrange, MainGrid, MainLinear, TitleMain, ViewMain } from "../src/components/commom";
+import { Container, LineOrange, MainGrid, MainLinear } from "../src/components/commom";
 import Card from "../src/components/Card";
 import Header from "../src/components/Header";
 import Modal from "../src/components/Modal";
@@ -7,28 +7,20 @@ import NavSugestion from "../src/components/NavSugestion";
 import NavMenuBottom from "../src/components/NavMenuBottom";
 import ModalDetails from "../src/components/ModalDetails";
 import Cart from "../src/components/Cart";
-import { productList, buttonSugestions } from "./api/dblist";
+import Config from "../src/config";
+import { productContext } from "../src/context/ProductContext";
+import styles from '../styles/Home.module.css';
 
 export default function Dashboard() {
-
+  const { productList, buttonSugestions } = Config;
+  const { add } = productContext();
   const [name, setName] = useState("");
   const [dataCard, setDataCard] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [itemModal, setItemModal] = useState({});
   const [showCart, setShowCart] = useState(false);
-  const [itemCart, setItemCart] = useState([]);
-  const [linksExample, setLinksExample] = useState([]);
 
   function Inicialize() {
-    let head = new Headers();
-    head.append('Content-Type', 'application/json');
-    head.append('Accept', 'application/json');
-    fetch("https://www.fruityvice.com/api/fruit/all", {
-      headers: head
-    })
-      .then((res) => res.json())
-      .then((response) => console.log(response))
-      .catch((erro) => console.log(erro))
     if (localStorage)
       setName(localStorage.getItem('name') === null ? 'Visitante' : localStorage.getItem('name'));
     ClearArray();
@@ -49,11 +41,10 @@ export default function Dashboard() {
     setDataCard(
       SetDataCardArray()
     );
-    setLinksExample(buttonSugestions);
   }
 
   function SetDataCardArray(data) {
-    data = data == undefined ? productList : data;
+    data = data === undefined ? productList : data;
     return (
       data.map((item) => (
         <div key={item.id}>
@@ -63,7 +54,6 @@ export default function Dashboard() {
             title={item.title}
             price={item.price}
             onShow={(obj) => ModalIsShow(obj)}
-            addCart={(obj) => CreateItemCart(obj)}
           />
         </div>
       ))
@@ -76,16 +66,12 @@ export default function Dashboard() {
   }
 
   function CreateItemCart(obj) {
-    setItemCart([...itemCart, obj]);
+    add(obj);
   }
 
-  function RemoveItemCart(obj) {
-    setItemCart(obj);
-  }
-
-  useEffect(function () {
+  useEffect(()=> {
     Inicialize();
-  }, [itemCart]);
+  }, []);
 
   return (
     <Container>
@@ -96,42 +82,43 @@ export default function Dashboard() {
         showCart={() => setShowCart(true)}
       />
       <NavSugestion
-        data={linksExample}
+        sugestions={buttonSugestions}
         search={(text) => Search(text)}
       />
-      <ViewMain>
+      <main className={styles.viewMain}>
         <section>
-          <TitleMain>Combos recomendados</TitleMain>
+          <span className={styles.titleMain}>Combos recomendados</span>
           <LineOrange width="20%" />
-          <MainGrid>
-            {dataCard}
-            {dataCard.length == 0 && (<TitleMain>Sem combos para exibir.</TitleMain>)}
-          </MainGrid>
+          <div className={styles.gridColumn}>
+            {
+              dataCard.length === 0
+              ? <span className={styles.titleMain}>Sem combos para exibir.</span>
+              : dataCard
+            }
+          </div>
         </section>
         <NavMenuBottom />
         <section>
-          <MainLinear>
-            {dataCard}
-            {dataCard.length == 0 && (
-              <TitleMain>Sem combos para exibir.</TitleMain>
-            )}
-          </MainLinear>
+          <div className={styles.flexRow}>
+              {
+                dataCard.length === 0
+                ? <span className={styles.titleMain}>Sem combos para exibir.</span>
+                : dataCard
+              }
+          </div>
         </section>
-      </ViewMain>
+      </main>
       <Modal
         onClose={() => setShowModal(false)}
         show={showModal}>
         <ModalDetails
           item={itemModal}
-          addCart={(obj) => CreateItemCart(obj)}
           onClose={() => setShowModal(false)}
         />
       </Modal>
       <Cart
         onClose={() => setShowCart(false)}
         show={showCart}
-        item={itemCart}
-        removeItemCart={(obj) => RemoveItemCart(obj)}
       />
     </Container>
   )

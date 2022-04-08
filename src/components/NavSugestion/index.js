@@ -1,12 +1,12 @@
-import { Nav, NavButton } from "./styles";
+import { Line, NavButton } from "./styles";
 
 export default function NavSugestion(props) {
-    const { data, search } = props;
+    const { sugestions, search } = props;
     
     return(
-        <Nav>
+        <Line>
             {
-                data.map(item => (
+                sugestions.map(item => (
                     <NavButton
                     key={item}
                     onClick={()=> search(item)}>
@@ -14,6 +14,6 @@ export default function NavSugestion(props) {
                     </NavButton>
                 ))
             }
-        </Nav>
+        </Line>
     )
 }

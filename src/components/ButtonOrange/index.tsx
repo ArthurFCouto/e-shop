@@ -1,21 +1,20 @@
-import { ContainerButton } from "./styles";
+import { ContainerButton, ViewButtom } from "./styles";
 
 interface OrangeProps {
   children: React.ReactChildren;
   actionClick?: Function;
   width?: string;
 }
-
-const ButtonOrange = ({
+export default function ButtonOrange({
   children,
   actionClick = () => null,
   width = "90%",
-}: OrangeProps) => {
+}: OrangeProps) {
   return (
-    <ContainerButton width={width} onClick={() => actionClick()}>
-      {children}
-    </ContainerButton>
+    <ViewButtom>
+      <ContainerButton width={width} onClick={()=> actionClick()}>
+        {children}
+      </ContainerButton>
+    </ViewButtom>
   );
-};
-
-export default ButtonOrange;
+}
