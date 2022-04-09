@@ -1,89 +1,141 @@
-.containerTop {
-    height: 60%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-bg-primary);
+.container {
+  min-width: 375px;
+  height: 100%;
+  min-height: 100%;
+  display: none;
+  position: relative;
 }
 
-.containerBottom {
-    height: 40%;
-    width: 100%;
-    padding: 10px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-white);
+.containerBody {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.bgClear {
+  background-color: var(--color-bg-clear);
+}
+
+.bgPrimary {
+  background-color: var(--color-bg-primary);
+}
+
+.bgWhite {
+  background-color: var(--color-white);
+}
+
+.btnExit {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+
+  width: 75px;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 100px;
+
+  white-space: nowrap;
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+}
+
+.btnExit:hover {
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 0px 1px rgba(0, 0, 0, 0.25);
+}
+
+.p5 {
+  padding: 5px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.p15 {
+  padding: 15px;
+}
+
+.flex {
+  display: flex;
+}
+
+.JCenterACenter {
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.grid {
+  width: 100%;
+  min-height: 314px;
+  padding: 5px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr; /*Ao utilizar 1fr estou utilizando uma fração do que tem disponível*/
+}
+
+.inlineFlex {
+  display: inline-flex;
+  column-gap: 10px;
+
+  width: 100%;
+  overflow-x: auto;
 }
 
 .title {
-    margin: 5px 0 15px 0;
-    padding: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    line-height: 1.4rem;
-    color: var(--color-text-primary);
+  margin: 5px 0 15px 0;
+  padding: 5px;
+  font-weight: bold !important;
+  line-height: 1.4rem !important;
+  color: var(--color-text-primary) !important;
 }
 
 .subTitle {
-    padding: 5px;
-    font-size: 1rem;
-    line-height: 1rem;
-    color: var(--color-text-secondary);
-}
-
-.inputData {
-    margin: 0 auto;
-    width: 100%;
-    padding: 15px 10px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    background: var(--color-bg-clear);
-    border-radius: 10px;
-    border: 0;
-}
-
-.inputData::placeholder{
-    color: var(--color-c2bdbd);
-}
-
-.flexRow {
-    width: 100%;
-    padding: 5px;
-    overflow-x: auto;
-
-    display: inline-flex;
-    column-gap: 10px;
-}
-
-.gridColumn {
-    width: 100%;
-    min-height: 314px;
-    padding: 5px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr; /*Ao utilizar 1fr estou utilizando uma fração do que tem disponível*/
+  padding: 5px;
+  line-height: 1rem !important;
+  color: var(--color-text-secondary) !important;
 }
 
 .titleMain {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.1rem;
-    line-height: 1.9rem;
-    color: var(--color-text-primary); 
+  line-height: 1.9rem !important;
+  color: var(--color-text-primary) !important;
 }
 
-.viewMain {
-    height: 100%;
+.inputCustomer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 10px;
+  background-color: var(--color-bg-clear);
+
+  text-align: left;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+
+  border-radius: 10px;
+  border: 0;
+}
+
+.inputCustomer::placeholder {
+  color: var(--color-gray);
+}
+
+@media (max-width: 860px) {
+  .container {
     display: block;
-    padding: 15px;
-    background-color: var(--color-white);
+    background-color: var(--color-bg-primary);
+  }
 }

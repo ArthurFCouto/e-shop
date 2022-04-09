@@ -1,7 +1,7 @@
 :root {
   --color-black-50: rgb(0 0 0 / 50%);
   --color-white: #FFFFFF;
-  --color-c2bdbd: #C2BDBD;
+  --color-gray: #C2BDBD;
   --color-e4e4e4: #E4E4E4;
   --color-divider: #F3F3F3;
   --color-text: #333333;
@@ -39,30 +39,25 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 0.9rem;
+h1, h2, h3 {
   font-style: normal;
   font-weight: normal;
   line-height: 1.5rem;
   letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 0.8rem;
   color: var(--color-text-primary);
 }
 
 h2 {
   font-size: 1rem;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1.5rem;
-  letter-spacing: -0.01em;
   color: var(--color-text-secondary);
 }
 
 h3 {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 1.2rem;
-  letter-spacing: -0.01em;
+  font-size: 1.2rem;
   color: var(--color-text-tertiary);
 }
 

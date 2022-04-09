@@ -1,92 +1,88 @@
 import { useState, useEffect } from "react";
-import { DivExit } from "../commom";
 import Image from "next/image";
-import { ContainerCart, CartBody, CartFooter } from "./styles";
+import { Container, Body, Footer } from "./styles";
 import ButtonOrange from "../ButtonOrange";
 import ButtonIcon from "../ButtonIcon";
 import { productContext } from "../../context/ProductContext";
+import styles from '../../../styles/Home.module.css';
 
 export default function ModalCart(props) {
     const { onClose, show } = props;
-    const { itemCart:item, remove } = productContext();
+    const { list, remove } = productContext();
     const [priceTotal, setPriceTotal] = useState(0);
-    const [itemShow, setItemShow] = useState([]);
-    const [showBody, setShowBody] = useState(<div />);
+    const [listProducts, setListProducts] = useState([]);
+    const [showBody, setShowBody] = useState(<></>);
     const body = (
-        <ContainerCart >
-            <header>
-                <DivExit onClick={() => onClose()}>
+        <Container >
+            <div className="header">
+                <div className={styles.btnExit} onClick={() => onClose()}>
                     <ButtonIcon icon="back" />
                     Fechar
-                </DivExit>
+                </div>
                 <span>Carrinho</span>
-            </header>
-            <CartBody>
+            </div>
+            <Body>
                 <ul>
                     {
-                        itemShow.map((data) => (
-                            <li className="item" key={data.id}>
-                                <div className="img">
+                        listProducts.map((product, index) => (
+                            <li key={index}>
+                                <div className={`${styles.flex} ${styles.JCenterACenter} ${styles.bgClear}`} style={{ borderRadius: "16px" }}>
                                     <Image
-                                        src={data.image}
+                                        src={product.image}
                                         alt="Carregando imagem..."
                                         height={50}
                                         width={50}
                                     />
                                 </div>
                                 <div className="details">
-                                    <span className="itemName">{data.title}&nbsp;</span>
-                                    <span className="itemCount">{data.count}&nbsp;unidades</span>
-                                    <span className="itemPrice">R$ {data.price.toFixed(2)}</span>
+                                    <span>{product.title}&nbsp;</span>
+                                    <span>{product.count}&nbsp;unidades</span>
+                                    <span>R$ {product.price.toFixed(2)}</span>
                                 </div>
-                                <div className="button">
+                                <div className={`${styles.flex} ${styles.JCenterACenter}`}>
                                     <ButtonIcon
                                         icon="sub"
-                                        actionClick={() => Remove(data.id)} />
+                                        actionClick={() => Exclude(product.id)} />
                                 </div>
                             </li>
                         ))
                     }
                 </ul>
-            </CartBody>
-            <CartFooter>
-                <div className="footer">
-                    Total
-                    <span>R$ {priceTotal.toFixed(2)}</span>
+            </Body>
+            <Footer>
+                <div className="title">
+                    <h1>Total</h1>
+                    <h3>R$ {priceTotal.toFixed(2)}</h3>
                 </div>
                 <ButtonOrange
                     actionClick={() => Redirect()}>
                     Checkout
                 </ButtonOrange>
-            </CartFooter>
-        </ContainerCart>
+            </Footer>
+        </Container>
     );
 
-    useEffect(function () {
-        let total = item.reduce((total, obj) => total += obj.price, 0);
-        setPriceTotal(total);
-        setItemShow(item);
-        if (show) {
-            setShowBody(body);
-        } else setShowBody(<div />)
-    }, [show, item]);
-
-    function Remove(id) {
-        const newItem = itemShow.filter((obj) => (obj.id != id));
-        let total = newItem.reduce((total, obj) => total += obj.price, 0);
-        setPriceTotal(total);
-        setItemShow(newItem);
-        remove(newItem);
+    function Exclude(id) {
+        const newListProducts = listProducts.filter((obj) => (obj.id != id));
+        const newPriceTotal = newListProducts.reduce((total, obj) => total += obj.price * obj.count, 0);
+        setPriceTotal(newPriceTotal);
+        setListProducts(newListProducts);
+        remove(id);
     }
 
     function Redirect() {
-        const text = itemShow.reduce((total, obj) => `${total}[${obj.id}] ${obj.title} - ${obj.count} unid. \n`, "");
+        const text = listProducts.reduce((total, obj) => `${total}[${obj.id}] ${obj.title} - ${obj.count} unid. \n`, "");
         const urlEncode = window.encodeURIComponent(`*Resumo do pedido:*\n${text}\nValor total: *R$ ${priceTotal.toFixed(2)}*`);
         window.open("https://api.whatsapp.com/send?phone=5538999414205&text=" + urlEncode);
         onClose();
     }
 
-    return (
-        showBody
-    )
+    useEffect(() => {
+        setPriceTotal(list.reduce((total, obj) => total += obj.price * obj.count, 0));
+        setListProducts(list);
+        if (show) setShowBody(body);
+        else setShowBody(<></>);
+    }, [show, list]);
+
+    return showBody;
 }

@@ -1,18 +1,19 @@
 import Image from "next/image";
 import {
-    CardPainel, Button, ImageContainer,
-    Bottom, Title, Price
+    Container, Button, ImageContainer,
+    Bottom, Price,
 } from "./styles";
 import ButtonLottie from "../ButtonLottie";
 import ButtonIcon from "../ButtonIcon";
+import styles from "../../../styles/Home.module.css";
 import { productContext } from "../../context/ProductContext";
 
 export default function Card(props) {
-    const { add:addCart } = productContext();
-    const { onShow, item, image, title, price } = props;
+    const { add } = productContext();
+    const { item, image, title, price, openModal } = props;
 
     function AddItemCart() {
-        const date = new Date();
+        /*const date = new Date();
         let idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
         let data = {
             id: idFull,
@@ -21,12 +22,13 @@ export default function Card(props) {
             price: price,
             count: 1
         }
-        addCart(data);
+        add(data);*/
+        add({ ...item, count: 1 });
         alert("Item adicionado!");
     }
 
     return (
-        <CardPainel>
+        <Container>
             <Button
                 top="8px"
                 rigth="8px">
@@ -35,9 +37,9 @@ export default function Card(props) {
                     width={50}
                     height={50} />
             </Button>
-            <ImageContainer>
+            <ImageContainer className={`${styles.flex} ${styles.JCenterACenter}`}>
                 <Image
-                    onClick={() => onShow(item)}
+                    onClick={() => openModal()}
                     src={image}
                     alt="Carregando imagem..."
                     height={85}
@@ -45,17 +47,19 @@ export default function Card(props) {
                 />
             </ImageContainer>
             <Bottom>
-                <Title
-                    onClick={() => onShow(item)}>
+                <h2 onClick={() => openModal()}>
                     {title}
-                </Title>
-                <Price>
-                    R$ {price.toFixed(2)}
-                    <div className="button">
+                </h2>
+                <Price className={`${styles.flex}`}>
+                    <h1>
+                        R$ {price.toFixed(2)}
+                    </h1>
+                    <span className="button">
                         <ButtonIcon icon="add" actionClick={() => AddItemCart()} />
-                    </div>
+                    </span>
+
                 </Price>
             </Bottom>
-        </CardPainel>
+        </Container>
     )
 }

@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
-import { Container, LineOrange, MainGrid, MainLinear } from "../src/components/commom";
+import { useEffect, useMemo, useState } from "react";
 import Card from "../src/components/Card";
-import Header from "../src/components/Header";
-import Modal from "../src/components/Modal";
-import NavSugestion from "../src/components/NavSugestion";
-import NavMenuBottom from "../src/components/NavMenuBottom";
-import ModalDetails from "../src/components/ModalDetails";
 import Cart from "../src/components/Cart";
 import Config from "../src/config";
-import { productContext } from "../src/context/ProductContext";
+import Header from "../src/components/Header";
+import MenuBottom from "../src/components/MenuBottom";
+import Modal from "../src/components/Modal";
+import Sugestions from "../src/components/Sugestions";
 import styles from '../styles/Home.module.css';
 
 export default function Dashboard() {
   const { productList, buttonSugestions } = Config;
-  const { add } = productContext();
   const [name, setName] = useState("");
   const [dataCard, setDataCard] = useState([]);
+
   const [showModal, setShowModal] = useState(false);
+  const displayModal = useMemo(()=>showModal, [showModal]);
   const [itemModal, setItemModal] = useState({});
+
   const [showCart, setShowCart] = useState(false);
 
   function Inicialize() {
@@ -44,29 +43,25 @@ export default function Dashboard() {
   }
 
   function SetDataCardArray(data) {
-    data = data === undefined ? productList : data;
+    const list = data === undefined ? productList : data;
     return (
-      data.map((item) => (
+      list.map((item) => (
         <div key={item.id}>
           <Card
             item={item}
             image={item.image}
             title={item.title}
             price={item.price}
-            onShow={(obj) => ModalIsShow(obj)}
+            openModal={() => OpenModal(item)}
           />
         </div>
       ))
     )
   }
 
-  function ModalIsShow(obj) {
-    setItemModal(obj);
+  function OpenModal(item) {
+    setItemModal(item);
     setShowModal(true);
-  }
-
-  function CreateItemCart(obj) {
-    add(obj);
   }
 
   useEffect(()=> {
@@ -74,35 +69,34 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container>
+    <div className={styles.container}>
       <Header
         name={name}
         search={(text) => Search(text)}
         clear={() => ClearArray()}
         showCart={() => setShowCart(true)}
       />
-      <NavSugestion
+      <Sugestions
         sugestions={buttonSugestions}
         search={(text) => Search(text)}
       />
-      <main className={styles.viewMain}>
+      <main className={`${styles.flex} ${styles.bgWhite} ${styles.column}`} style={{height: "100%"}}>
         <section>
-          <span className={styles.titleMain}>Combos recomendados</span>
-          <LineOrange width="20%" />
-          <div className={styles.gridColumn}>
+          <h3 className={styles.titleMain}>Combos recomendados</h3>
+          <div className={styles.grid}>
             {
               dataCard.length === 0
-              ? <span className={styles.titleMain}>Sem combos para exibir.</span>
+              ? <h2 className={styles.titleMain}>Sem combos para exibir.</h2>
               : dataCard
             }
           </div>
         </section>
-        <NavMenuBottom />
+        <MenuBottom />
         <section>
-          <div className={styles.flexRow}>
+          <div className={`${styles.inlineFlex} ${styles.p5}`}>
               {
                 dataCard.length === 0
-                ? <span className={styles.titleMain}>Sem combos para exibir.</span>
+                ? <h2 className={styles.titleMain}>Sem combos para exibir.</h2>
                 : dataCard
               }
           </div>
@@ -110,16 +104,12 @@ export default function Dashboard() {
       </main>
       <Modal
         onClose={() => setShowModal(false)}
-        show={showModal}>
-        <ModalDetails
-          item={itemModal}
-          onClose={() => setShowModal(false)}
-        />
-      </Modal>
+        show={displayModal}
+        item={itemModal} />
       <Cart
         onClose={() => setShowCart(false)}
         show={showCart}
       />
-    </Container>
+    </div>
   )
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
     display: block;
-    height: 150px;
+    height: 135px;
     width: 100%;
 `;
 
@@ -23,6 +23,7 @@ export const Line = styled.nav`
         column-gap: 1rem;
 
         h2 {
+            color: var(--color-text-secondary);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -36,20 +37,17 @@ export const Line = styled.nav`
 `;
 
 export const Button = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
     overflow: hidden;
 
     width: 48px;
     max-width: 48px;
     height: 48px;
     max-width: 48px;
-    cursor: pointer;
 
     border-radius: 50%;
     border: 0;
-    background: var(--color-white);
+    background-color: var(--color-white);
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05), 0px 0px 1px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.25s;
 

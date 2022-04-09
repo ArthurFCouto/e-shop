@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import ButtonIcon from "../ButtonIcon";
+import ModalDetails from "../ModalDetails";
 import { ModalContainer, Body } from "./styles";
+import styles from '../../../styles/Home.module.css';
 
 export default function Modal(props) {
-    const { show, onClose, children } = props;
+    const { show, onClose, item } = props;
     const id = useRef(null);
     const [modal, setModal] = useState(<></>)
 
@@ -14,13 +16,16 @@ export default function Modal(props) {
                     <div className="top" onClick={() => Close()} />
                     <Body ref={id}>
                         <div className="header">
-                            <div className="buttonExit" onClick={() => Close()} >
+                            <div className={styles.buttonExit} onClick={() => Close()} >
                                 <ButtonIcon icon="back" />
                                 Fechar
                             </div>
                         </div>
                         <div className="children">
-                            {children}
+                            <ModalDetails
+                                item={item}
+                                onClose={() => setShowModal(false)}
+                            />
                         </div>
                     </Body>
                 </ModalContainer>

@@ -7,7 +7,7 @@ export const Line = styled.nav`
     align-items: center;
     justify-content: flex-start;
     overflow-x: auto;
-    background-color: var(--color-divider);
+    background-color: var(--color-bg-clear);
 `;
 
 export const NavButton = styled.button`
@@ -21,7 +21,6 @@ export const NavButton = styled.button`
     font-size: 0.9rem;
     border-radius: 10px;
     white-space: nowrap;
-
     transition: all 0.25s;
 
     :hover{

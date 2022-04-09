@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button, ContainerHeader, Line } from "./styles";
-import { InputCustomer } from "../commom"
 import menu from "../../iconsSvg/menu.svg";
 import cart from "../../iconsSvg/cesta.svg";
-import filter from '../../iconsSvg/filter.svg';
+import filter from "../../iconsSvg/filter.svg";
+import styles from "../../../styles/Home.module.css";
 
 export default function Header(props) {
     const [valueInput, setValueInput] = useState("");
@@ -28,8 +28,9 @@ export default function Header(props) {
                     <h2>Olá, {name}</h2>
                 </div>
                 <Button
+                    className={styles.JCenterACenter}
                     title="Meu carrinho"
-                    onClick={() => showCart(true)}>
+                    onClick={() => showCart()}>
                     <Image
                         src={cart}
                         height={30}
@@ -44,7 +45,8 @@ export default function Header(props) {
                         event.preventDefault();
                         search(valueInput);
                     }}>
-                    <InputCustomer
+                    <input
+                        className={styles.inputCustomer}
                         placeholder="Pesquisar..."
                         type="search"
                         autoComplete="false"
@@ -54,10 +56,7 @@ export default function Header(props) {
                 </form>
                 <Button
                     title="Filtrar / Limpar"
-                    onClick={() => {
-                        setValueInput("");
-                        clear();
-                    }}>
+                    onClick={() => clear()}>
                     <Image
                         src={filter}
                         height={30}

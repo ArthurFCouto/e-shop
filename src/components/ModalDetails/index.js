@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useState } from "react";
-import { InputPerson, LineOrange } from "../commom";
 import { ContainerModalDetail, BodySection, Divider, Footer, HeaderSection, Tags } from "./styles";
 import ButtonIcon from "../ButtonIcon";
 import ButtonOrange from "../ButtonOrange";
