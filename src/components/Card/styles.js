@@ -40,11 +40,12 @@ export const Bottom = styled.main`
     flex-direction: column;
     justify-content: center;
 
-    h2 {
+    .title {
         width: 100%;
         margin: 5px 0;
         overflow: hidden;
 
+        font-weight: 500;
         text-overflow: ellipsis;
         text-align: center;
         white-space: nowrap;

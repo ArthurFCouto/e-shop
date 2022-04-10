@@ -22,7 +22,7 @@ export default function Register() {
         />
       </div>
       <div className={`${styles.containerBody} ${styles.p10} ${styles.column} ${styles.bgWhite}`} style={{height: "40%"}}>
-        <span className={styles.title}>Primeiramente, qual seu nome?</span>
+        <h3 className={styles.title}>Primeiramente, qual seu nome?</h3>
         <input className={`${styles.inputCustomer}`}
           placeholder="Visitante"
           onChange={(event) => SubmitName(event.target.value)}

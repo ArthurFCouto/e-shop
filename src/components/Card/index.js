@@ -37,13 +37,13 @@ export default function Card(props) {
                 />
             </ImageContainer>
             <Bottom>
-                <h2 onClick={() => openModal()}>
+                <h1 className="title" onClick={() => openModal()}>
                     {title}
-                </h2>
+                </h1>
                 <Price className={`${styles.flex}`}>
-                    <h1>
+                    <h2>
                         R$ {price.toFixed(2)}
-                    </h1>
+                    </h2>
                     <span className="button">
                         <ButtonIcon icon="add" actionClick={() => AddItemCart()} />
                     </span>
