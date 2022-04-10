@@ -75,7 +75,7 @@ export default function Dashboard() {
       />
       <main className={`${styles.flex} ${styles.bgWhite} ${styles.column}`} style={{ height: "100%" }}>
         <section>
-          <div className={styles.p5}>
+          <div className={styles.p5} style={{margin: "10px 0"}}>
             <h3 className={styles.titleMain}>Combos recomendados</h3>
             <div className={`${styles.lineOrange}`} style={{ width: "30%" }} />
           </div>

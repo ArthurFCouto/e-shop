@@ -53,7 +53,7 @@ export const ContainerDetail = styled.main`
     height: 100%;
 
     .section {
-        height: 75%;
+        min-height: 75%;
 
         background-color: var(--color-white);
         padding: 8px;

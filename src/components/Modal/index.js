@@ -26,8 +26,8 @@ export default function Modal(props) {
 
     function AddItemCart() {
         add({ ...item, count: valueInput });
-        Close();
         alert("Item adicionado!");
+        Close();
     }
 
     function Close() {
