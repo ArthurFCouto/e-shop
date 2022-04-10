@@ -89,7 +89,7 @@ export const Footer = styled.footer`
     .title {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
 
         h1 {
         font-weight: 300!important;

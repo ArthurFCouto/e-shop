@@ -1,5 +1,6 @@
 import { useReducer } from "react";
-import { Button, Container, Line } from "./styles";
+import { Button, Container } from "./styles";
+import styles from "../../../styles/Home.module.css";
 
 export default function NavMenuBottom() {
     const [active, dispatchActive] = useReducer(Alter, {
@@ -36,18 +37,15 @@ export default function NavMenuBottom() {
         <Container>
             <Button onClick={() => dispatchActive({ select: 1 })}>
                 <h2>Populares</h2>
-                <Line
-                    width={active.widthBtn1} />
+                <div className={`${styles.lineOrange}`} style={{ width: active.widthBtn1 }} />
             </Button>
             <Button onClick={() => dispatchActive({ select: 2 })}>
                 <h2>Mais Pedidos</h2>
-                <Line
-                    width={active.widthBtn2} />
+                <div className={`${styles.lineOrange}`} style={{ width: active.widthBtn2 }} />
             </Button>
             <Button onClick={() => dispatchActive({ select: 3 })}>
                 <h2>Novos Combos</h2>
-                <Line
-                    width={active.widthBtn3} />
+                <div className={`${styles.lineOrange}`} style={{ width: active.widthBtn3 }} />
             </Button>
         </Container>
     )

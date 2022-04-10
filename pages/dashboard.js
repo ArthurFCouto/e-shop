@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../src/components/Card";
 import Cart from "../src/components/Cart";
 import Config from "../src/config";
@@ -12,18 +12,9 @@ export default function Dashboard() {
   const { productList, buttonSugestions } = Config;
   const [name, setName] = useState("");
   const [dataCard, setDataCard] = useState([]);
-
   const [showModal, setShowModal] = useState(false);
-  const displayModal = useMemo(()=>showModal, [showModal]);
   const [itemModal, setItemModal] = useState({});
-
   const [showCart, setShowCart] = useState(false);
-
-  function Inicialize() {
-    if (localStorage)
-      setName(localStorage.getItem('name') === null ? 'Visitante' : localStorage.getItem('name'));
-    ClearArray();
-  }
 
   function Search(data) {
     if ((data != undefined) && (data.trim().length > 0)) {
@@ -64,8 +55,10 @@ export default function Dashboard() {
     setShowModal(true);
   }
 
-  useEffect(()=> {
-    Inicialize();
+  useEffect(() => {
+    if (localStorage)
+      setName(localStorage.getItem('name') === null ? 'Visitante' : localStorage.getItem('name'));
+    ClearArray();
   }, []);
 
   return (
@@ -80,31 +73,36 @@ export default function Dashboard() {
         sugestions={buttonSugestions}
         search={(text) => Search(text)}
       />
-      <main className={`${styles.flex} ${styles.bgWhite} ${styles.column}`} style={{height: "100%"}}>
+      <main className={`${styles.flex} ${styles.bgWhite} ${styles.column}`} style={{ height: "100%" }}>
         <section>
-          <h3 className={styles.titleMain}>Combos recomendados</h3>
+          <div className={styles.p5}>
+            <h3 className={styles.titleMain}>Combos recomendados</h3>
+            <div className={`${styles.lineOrange}`} style={{ width: "30%" }} />
+          </div>
           <div className={styles.grid}>
             {
               dataCard.length === 0
-              ? <h2 className={styles.titleMain}>Sem combos para exibir.</h2>
-              : dataCard
+                ? <h2 className={styles.titleMain}>Sem combos para exibir.</h2>
+                : dataCard
             }
           </div>
         </section>
-        <MenuBottom />
+        <div className={styles.p5}>
+          <MenuBottom />
+        </div>
         <section>
           <div className={`${styles.inlineFlex} ${styles.p5}`}>
-              {
-                dataCard.length === 0
+            {
+              dataCard.length === 0
                 ? <h2 className={styles.titleMain}>Sem combos para exibir.</h2>
                 : dataCard
-              }
+            }
           </div>
         </section>
       </main>
       <Modal
         onClose={() => setShowModal(false)}
-        show={displayModal}
+        show={showModal}
         item={itemModal} />
       <Cart
         onClose={() => setShowCart(false)}

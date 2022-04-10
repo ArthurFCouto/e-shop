@@ -7,7 +7,7 @@ export const Container = styled.div`
     padding: 10px 5px;
 `;
 
-export const Button = styled.button<HTMLButtonElement>`
+export const Button = styled.button`
     width: ${(props) => props.width};
     height: auto;
     min-height: 44px;

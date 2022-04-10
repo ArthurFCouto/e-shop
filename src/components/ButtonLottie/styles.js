@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LottieContainer = styled.button`
+export const Container = styled.button`
     max-width: 100%;
     max-height: 100%;
 
@@ -12,7 +12,7 @@ export const LottieContainer = styled.button`
     justify-content: center;
 
     cursor: pointer;
-    background-color: rgb(0 0 0 / 0%);
+    background-color: rgba(0, 0, 0, 0);
 
     .animation {
         pointer-events: none;

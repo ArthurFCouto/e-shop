@@ -13,16 +13,6 @@ export default function Card(props) {
     const { item, image, title, price, openModal } = props;
 
     function AddItemCart() {
-        /*const date = new Date();
-        let idFull = " " + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
-        let data = {
-            id: idFull,
-            image: image,
-            title: title,
-            price: price,
-            count: 1
-        }
-        add(data);*/
         add({ ...item, count: 1 });
         alert("Item adicionado!");
     }

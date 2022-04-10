@@ -21,11 +21,3 @@ export const Button = styled.button`
     background-color: var(--color-white);
     border: 0;
 `;
-
-export const Line = styled.div`
-    content: '';
-    width: ${(props)=> props.width};
-    background-color: var(--color-bg-primary);
-    margin: 5px 0;
-    height: 2px;
-`;

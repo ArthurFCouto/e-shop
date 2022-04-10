@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import add from "../../iconsSvg/add.svg";
 import back from "../../iconsSvg/back.svg";
 import sub from "../../iconsSvg/sub.svg";
-import { ContainerButton } from "./styles";
+import { Container } from "./styles";
+import styles from "../../../styles/Home.module.css";
 
 interface IconProps {
   icon: "add" | "back" | "sub";
@@ -13,7 +14,7 @@ interface IconProps {
 export default function ButtonIcon({
   icon,
   actionClick = () => null,
-}: IconProps) {
+}: IconProps):React.ReactElement {
   const [img, setImg] = useState(back);
 
   useEffect(function () {
@@ -26,9 +27,13 @@ export default function ButtonIcon({
         break;
     }
   }, []);
+
   return (
-    <ContainerButton onClick={() => actionClick()}>
+    <Container
+      className={`${styles.flex} ${styles.JCenterACenter}`}
+      onClick={() => actionClick()}
+    >
       <Image src={img} height={30} width={30} alt="Button" />
-    </ContainerButton>
+    </Container>
   );
 }

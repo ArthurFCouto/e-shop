@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LottieContainer } from './styles';
+import { Container } from './styles';
 import Lottie from "react-lottie";
 import heart from "../../assets/json/heart.json";
 
@@ -28,7 +28,7 @@ export default function ButtonLottie(props) {
     }
   }, []);
   return (
-    <LottieContainer
+    <Container
       onClick={() => {
         let directionAnimated = animationState.direction * -1;
         setAnimationState({
@@ -51,6 +51,6 @@ export default function ButtonLottie(props) {
           isPaused={animationState.isPaused}
         />
       </div>
-    </LottieContainer>
+    </Container>
   );
 };
